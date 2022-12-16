@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class TheDogAPIInteractor: BreedsInteractor {
+final class TheDogAPIInteractor: DogBreedsInteractor {
     
     private let baseURL = URL(string: "https://api.thedogapi.com")!
     private let client: HTTPClient

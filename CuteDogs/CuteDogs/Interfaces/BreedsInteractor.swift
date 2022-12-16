@@ -17,7 +17,7 @@ struct CuteDog {
     
 }
 
-protocol BreedsInteractor {
+protocol DogBreedsInteractor {
     
     func fetchBreeds(size: Int, pageNumber: Int) async throws -> [CuteDog]
 }

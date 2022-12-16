@@ -15,7 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let cuteDogsViewController = CuteDogsListViewController()
+        
+        let appSession = URLSession(configuration: .default)
+        let networkClient = NetworkClient(session: appSession)
+        let dogBreedsInteractor = TheDogAPIInteractor(client: networkClient)
+        
+        let presenter = CuteDogsListPresenter(docInteractor: dogBreedsInteractor)
+        let cuteDogsViewController = CuteDogsListViewController(presenter: presenter)
+        
         window?.rootViewController = cuteDogsViewController
         window?.makeKeyAndVisible()
     }

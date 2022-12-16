@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */; };
 		F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F5A294C84E000FA828E /* AppDelegate.swift */; };
 		F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F5C294C84E000FA828E /* SceneDelegate.swift */; };
 		F5587F5F294C84E000FA828E /* CuteDogsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F5E294C84E000FA828E /* CuteDogsListViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListPresenter.swift; sourceTree = "<group>"; };
 		F5587F57294C84E000FA828E /* CuteDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuteDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5587F5A294C84E000FA828E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5587F5C294C84E000FA828E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F53EC638294CD89E0044DE75 /* CuteDogsListView */ = {
+			isa = PBXGroup;
+			children = (
+				F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */,
+				F5587F5E294C84E000FA828E /* CuteDogsListViewController.swift */,
+				F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */,
+			);
+			path = CuteDogsListView;
+			sourceTree = "<group>";
+		};
 		F5587F4E294C84E000FA828E = {
 			isa = PBXGroup;
 			children = (
@@ -117,8 +129,7 @@
 			children = (
 				F5587F68294C84E100FA828E /* Info.plist */,
 				F5587FA2294CCB9900FA828E /* Main */,
-				F5587F5E294C84E000FA828E /* CuteDogsListViewController.swift */,
-				F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */,
+				F53EC638294CD89E0044DE75 /* CuteDogsListView */,
 				F5587F65294C84E100FA828E /* LaunchScreen.storyboard */,
 				F5587F90294C91CB00FA828E /* Interfaces */,
 				F5587F8C294C898300FA828E /* TheDogApi */,
@@ -353,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */,
 				F5587F5F294C84E000FA828E /* CuteDogsListViewController.swift in Sources */,
 				F5587F97294C9C4000FA828E /* TheDogAPIInteractor.swift in Sources */,
 				F5587F94294C925000FA828E /* BreedsInteractor.swift in Sources */,
