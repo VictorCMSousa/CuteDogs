@@ -21,6 +21,7 @@
 		F5587F94294C925000FA828E /* BreedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F93294C925000FA828E /* BreedsInteractor.swift */; };
 		F5587F97294C9C4000FA828E /* TheDogAPIInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F96294C9C4000FA828E /* TheDogAPIInteractor.swift */; };
 		F5587F9B294CC65700FA828E /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F9A294CC65700FA828E /* HTTPClientSpy.swift */; };
+		F5587F9E294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F9D294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		F5587F93294C925000FA828E /* BreedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsInteractor.swift; sourceTree = "<group>"; };
 		F5587F96294C9C4000FA828E /* TheDogAPIInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDogAPIInteractor.swift; sourceTree = "<group>"; };
 		F5587F9A294CC65700FA828E /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		F5587F9D294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		F5587F70294C84E100FA828E /* CuteDogsTests */ = {
 			isa = PBXGroup;
 			children = (
+				F5587F9C294CC7F700FA828E /* Helpers */,
 				F5587F98294CC3E600FA828E /* TestDoubles */,
 				F5587F71294C84E100FA828E /* TheDogAPIInteractor.swift */,
 			);
@@ -190,6 +193,14 @@
 				F5587F9A294CC65700FA828E /* HTTPClientSpy.swift */,
 			);
 			path = Spies;
+			sourceTree = "<group>";
+		};
+		F5587F9C294CC7F700FA828E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F5587F9D294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +350,7 @@
 			files = (
 				F5587F72294C84E100FA828E /* TheDogAPIInteractor.swift in Sources */,
 				F5587F9B294CC65700FA828E /* HTTPClientSpy.swift in Sources */,
+				F5587F9E294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,7 @@ final class TheDogAPIInteractorTests: XCTestCase {
                  line: UInt = #line) -> BreedsInteractor {
         
         let sut = TheDogAPIInteractor(client: client)
+        trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
 }
