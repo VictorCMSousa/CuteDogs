@@ -320,6 +320,7 @@
 /* Begin XCBuildConfiguration section */
 		F5587F7F294C84E100FA828E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5587F8A294C85CC00FA828E /* ApiKey.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -380,6 +381,7 @@
 		};
 		F5587F80294C84E100FA828E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5587F8A294C85CC00FA828E /* ApiKey.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
