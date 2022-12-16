@@ -16,7 +16,7 @@
 		F5587F72294C84E100FA828E /* CuteDogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F71294C84E100FA828E /* CuteDogsTests.swift */; };
 		F5587F7C294C84E100FA828E /* CuteDogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F7B294C84E100FA828E /* CuteDogsUITests.swift */; };
 		F5587F7E294C84E100FA828E /* CuteDogsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F7D294C84E100FA828E /* CuteDogsUITestsLaunchTests.swift */; };
-		F5587F8F294C8A4C00FA828E /* DogsBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F8E294C8A4C00FA828E /* DogsBreeds.swift */; };
+		F5587F8F294C8A4C00FA828E /* DogsBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F8E294C8A4C00FA828E /* DogsBreed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,7 @@
 		F5587F7B294C84E100FA828E /* CuteDogsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsUITests.swift; sourceTree = "<group>"; };
 		F5587F7D294C84E100FA828E /* CuteDogsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F5587F8A294C85CC00FA828E /* ApiKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ApiKey.xcconfig; sourceTree = "<group>"; };
-		F5587F8E294C8A4C00FA828E /* DogsBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsBreeds.swift; sourceTree = "<group>"; };
+		F5587F8E294C8A4C00FA828E /* DogsBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsBreed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +151,7 @@
 		F5587F8D294C89A900FA828E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F5587F8E294C8A4C00FA828E /* DogsBreeds.swift */,
+				F5587F8E294C8A4C00FA828E /* DogsBreed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,7 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5587F5F294C84E000FA828E /* ViewController.swift in Sources */,
-				F5587F8F294C8A4C00FA828E /* DogsBreeds.swift in Sources */,
+				F5587F8F294C8A4C00FA828E /* DogsBreed.swift in Sources */,
 				F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */,
 				F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */,
 			);
