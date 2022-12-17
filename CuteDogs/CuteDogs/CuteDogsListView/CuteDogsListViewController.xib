@@ -60,7 +60,7 @@
                     </constraints>
                 </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="m0y-eg-RiK">
-                    <rect key="frame" x="0.0" y="99" width="393" height="719"/>
+                    <rect key="frame" x="24" y="99" width="345" height="719"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ovO-Ig-dPo">
                         <size key="itemSize" width="128" height="128"/>
@@ -76,10 +76,10 @@
                 <constraint firstItem="uRp-6A-FoY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="89l-ob-yHO"/>
                 <constraint firstItem="uRp-6A-FoY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="ARV-5c-OSX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="m0y-eg-RiK" secondAttribute="bottom" id="Cd8-R5-Odd"/>
-                <constraint firstItem="m0y-eg-RiK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZSf-N0-PEJ"/>
+                <constraint firstItem="m0y-eg-RiK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="ZSf-N0-PEJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uRp-6A-FoY" secondAttribute="trailing" constant="24" id="aIo-4U-EJF"/>
                 <constraint firstItem="m0y-eg-RiK" firstAttribute="top" secondItem="uRp-6A-FoY" secondAttribute="bottom" id="agv-wi-uKn"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="m0y-eg-RiK" secondAttribute="trailing" id="rmq-xV-RXl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="m0y-eg-RiK" secondAttribute="trailing" constant="24" id="rmq-xV-RXl"/>
             </constraints>
             <point key="canvasLocation" x="89" y="21"/>
         </view>

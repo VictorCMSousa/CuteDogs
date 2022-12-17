@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CuteDogsListCellView" customModule="CuteDogs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Bb4-No-oji">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cute-placehold" translatesAutoresizingMaskIntoConstraints="NO" id="fux-S1-lrm">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="160" id="eb6-nn-puS"/>
+                                <constraint firstAttribute="width" constant="160" id="gJy-g2-YGW"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USf-0c-N2t">
+                            <rect key="frame" x="172" y="0.0" width="221" height="160"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7g-l7-2lg">
+                                    <rect key="frame" x="0.0" y="70" width="197" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="p7g-l7-2lg" firstAttribute="centerY" secondItem="USf-0c-N2t" secondAttribute="centerY" id="P98-gX-5ag"/>
+                                <constraint firstItem="p7g-l7-2lg" firstAttribute="leading" secondItem="USf-0c-N2t" secondAttribute="leading" id="QJJ-Bd-LGM"/>
+                                <constraint firstAttribute="trailing" secondItem="p7g-l7-2lg" secondAttribute="trailing" constant="24" id="o9v-K4-AUl"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Bb4-No-oji" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="UCl-WE-5GS"/>
+                <constraint firstItem="Bb4-No-oji" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YJD-0m-VEl"/>
+                <constraint firstAttribute="trailing" secondItem="Bb4-No-oji" secondAttribute="trailing" id="rHI-KQ-MiM"/>
+                <constraint firstItem="Bb4-No-oji" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="wlp-bh-cJ2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dogImageView" destination="fux-S1-lrm" id="gIx-x7-Dlf"/>
+                <outlet property="nameLabel" destination="p7g-l7-2lg" id="cTv-1Y-Es5"/>
+            </connections>
+            <point key="canvasLocation" x="87.786259541984734" y="264.08450704225356"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cute-placehold" width="194.5" height="243"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
