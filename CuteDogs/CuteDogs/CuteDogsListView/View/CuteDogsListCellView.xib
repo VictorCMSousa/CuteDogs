@@ -20,7 +20,6 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cute-placehold" translatesAutoresizingMaskIntoConstraints="NO" id="fux-S1-lrm">
                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="160" id="eb6-nn-puS"/>
                                 <constraint firstAttribute="width" constant="160" id="gJy-g2-YGW"/>
                             </constraints>
                         </imageView>
@@ -28,7 +27,7 @@
                             <rect key="frame" x="172" y="0.0" width="221" height="160"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7g-l7-2lg">
-                                    <rect key="frame" x="0.0" y="70" width="197" height="20.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="70" width="217" height="20.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -38,7 +37,7 @@
                             <constraints>
                                 <constraint firstItem="p7g-l7-2lg" firstAttribute="centerY" secondItem="USf-0c-N2t" secondAttribute="centerY" id="P98-gX-5ag"/>
                                 <constraint firstItem="p7g-l7-2lg" firstAttribute="leading" secondItem="USf-0c-N2t" secondAttribute="leading" id="QJJ-Bd-LGM"/>
-                                <constraint firstAttribute="trailing" secondItem="p7g-l7-2lg" secondAttribute="trailing" constant="24" id="o9v-K4-AUl"/>
+                                <constraint firstAttribute="trailing" secondItem="p7g-l7-2lg" secondAttribute="trailing" constant="4" id="o9v-K4-AUl"/>
                             </constraints>
                         </view>
                     </subviews>

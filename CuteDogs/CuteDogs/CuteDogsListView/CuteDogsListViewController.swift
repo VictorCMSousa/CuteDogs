@@ -11,10 +11,16 @@ protocol CuteDogsListViewControllerPresenter {
     
 }
 
-struct CuteDogsCellConfiguration {
+struct CuteDogsCellConfiguration: Hashable, Comparable {
     
+    let id: Int
     let name: String
     let dogImageURL: URL?
+    
+    static func < (lhs: CuteDogsCellConfiguration, rhs: CuteDogsCellConfiguration) -> Bool {
+        lhs.name < rhs.name
+    }
+    
 }
 
 final class CuteDogsListViewController: UIViewController {
@@ -24,19 +30,45 @@ final class CuteDogsListViewController: UIViewController {
     
     private let presenter: CuteDogsListViewControllerPresenter
     
+    enum Section {
+        case main
+    }
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, CuteDogsCellConfiguration>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, CuteDogsCellConfiguration>
+    
     private let listCellId: String = "listCellId"
     private let gridCellId: String = "gridCellId"
-    private var isListView: Bool = true
     
-    private var dataSource: [CuteDogsCellConfiguration] = []
+    private lazy var dataSource: DataSource = {
+        .init(collectionView: collectionView) { [weak self] (collectionView, indexPath, config) in
+            guard let self else { return UICollectionViewCell() }
+            if self.isListView {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.listCellId,
+                                                                    for: indexPath) as? CuteDogsListCellView else {
+                    return UICollectionViewCell()
+                }
+                cell.setup(config: config)
+                return cell
+            } else {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.gridCellId,
+                                                                    for: indexPath) as? CuteDogsGridCellView else {
+                    return UICollectionViewCell()
+                }
+                cell.setup(config: config)
+                return cell
+            }
+        }
+    }()
+    
+    private var isListView: Bool = true
     
     private lazy var listCVLayout: UICollectionViewFlowLayout = {
 
         let collectionFlowLayout = UICollectionViewFlowLayout()
-        collectionFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
-        collectionFlowLayout.itemSize = CGSize(width: collectionView.frame.width, height: 160)
-        collectionFlowLayout.minimumInteritemSpacing = 0
-        collectionFlowLayout.minimumLineSpacing = 20
+        collectionFlowLayout.sectionInset = UIEdgeInsets(top: 12, left: 8, bottom: 12, right: 8)
+        collectionFlowLayout.itemSize = CGSize(width: collectionView.frame.width-32, height: 160)
+        collectionFlowLayout.minimumInteritemSpacing = 8
+        collectionFlowLayout.minimumLineSpacing = 8
         collectionFlowLayout.scrollDirection = .vertical
         return collectionFlowLayout
     }()
@@ -45,10 +77,12 @@ final class CuteDogsListViewController: UIViewController {
         
         let collectionFlowLayout = UICollectionViewFlowLayout()
         collectionFlowLayout.scrollDirection = .vertical
-        collectionFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        collectionFlowLayout.itemSize = CGSize(width: (collectionView.frame.width - 20) / 2 , height: 200)
-        collectionFlowLayout.minimumInteritemSpacing = 20
-        collectionFlowLayout.minimumLineSpacing = 20
+        collectionFlowLayout.sectionInset = UIEdgeInsets(top: 20, left: 8, bottom: 8, right: 8)
+        let cellWidth = 160.0
+        let itemPerLine = (collectionView.frame.width/cellWidth).rounded()
+        collectionFlowLayout.itemSize = CGSize(width: (collectionView.frame.width/itemPerLine)-16 , height: 200)
+        collectionFlowLayout.minimumInteritemSpacing = 0
+        collectionFlowLayout.minimumLineSpacing = 8
         return collectionFlowLayout
     }()
     
@@ -64,21 +98,31 @@ final class CuteDogsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = [.init(name: "Australian Kelpie", dogImageURL: nil), .init(name: "Belgian Malinois", dogImageURL: nil),
-                      .init(name: "Bedlington Terrier", dogImageURL: nil), .init(name: "Belgian Malinoise", dogImageURL: nil),
-                      .init(name: "Bedlington Terrier", dogImageURL: nil), .init(name: "Australian Kelpie", dogImageURL: nil),
-                      .init(name: "Cairn Terrier", dogImageURL: nil), .init(name: "Dalmatian", dogImageURL: nil),
-                      .init(name: "Cairn Terrier", dogImageURL: nil), .init(name: "Dalmatian", dogImageURL: nil),
-                      .init(name: "Cardigan Welsh Corgi", dogImageURL: nil), .init(name: "Australian Kelpie", dogImageURL: nil),
-                      .init(name: "Cardigan Welsh Corgi", dogImageURL: nil), .init(name: "Australian Kelpie", dogImageURL: nil),
-                      .init(name: "Scottish Terrier", dogImageURL: nil), .init(name: "Siberian Husky", dogImageURL: nil),
-                      .init(name: "Scottish Terrier", dogImageURL: nil), .init(name: "Siberian Husky", dogImageURL: nil),
-        ]
-        
         collectionView.register(UINib(nibName:"CuteDogsListCellView", bundle: nil), forCellWithReuseIdentifier: listCellId)
         collectionView.register(UINib(nibName:"CuteDogsGridCellView", bundle: nil), forCellWithReuseIdentifier: gridCellId)
-        collectionView.dataSource = self
+        collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = listCVLayout
+        apply()
+    }
+    
+    func apply() {
+        
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        let configs: [CuteDogsCellConfiguration] = [.init(id: 1, name: "Siberian Husky", dogImageURL: nil),
+                                                    .init(id: 2, name: "Smooth Fox Terrier", dogImageURL: nil),
+                                                    .init(id: 3, name: "Rat Terrier", dogImageURL: nil),
+                                                    .init(id: 4, name: "Belgian Malinoise", dogImageURL: nil),
+                                                    .init(id: 5, name: "Bedlington Terrier", dogImageURL: nil),
+                                                    .init(id: 6, name: "Australian Kelpie", dogImageURL: nil),
+                                                    .init(id: 7, name: "Cairn Terrier", dogImageURL: nil),
+                                                    .init(id: 8, name: "Dalmatian", dogImageURL: nil),
+                                                    .init(id: 9, name: "Cairn Terrier", dogImageURL: nil),
+                                                    .init(id: 10, name: "Dalmatian", dogImageURL: nil),
+                                                    .init(id: 11, name: "Cardigan Welsh Corgi", dogImageURL: nil),
+         ]
+        snapshot.appendItems(configs)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
     
     private var waitStyleTransaction = false
@@ -98,31 +142,48 @@ final class CuteDogsListViewController: UIViewController {
     
     @IBAction func onSortButton(_ sender: Any) {
         print("CuteDogsListViewController - onSortButton")
+        var snapshot = dataSource.snapshot()
+        let sortedElements = snapshot.itemIdentifiers(inSection: .main).sorted()
+        snapshot.deleteAllItems()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(sortedElements)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
-// MARK: UICollectionViewDataSource
+// MARK: UICollectionViewDiffableDataSource
 
-extension CuteDogsListViewController: UICollectionViewDataSource {
+extension CuteDogsListViewController {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if isListView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: listCellId, for: indexPath) as? CuteDogsListCellView else {
-                return UICollectionViewCell()
-            }
-            cell.setup(config: dataSource[indexPath.item])
-            return cell
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridCellId, for: indexPath) as? CuteDogsGridCellView else {
-                return UICollectionViewCell()
-            }
-            cell.setup(config: dataSource[indexPath.item])
-            return cell
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+//        indexPaths.forEach { indexPath in
+//            let dsp = cellController(at: indexPath)?.dataSourcePrefetching
+//            dsp?.collectionView(collectionView, prefetchItemsAt: [indexPath])
+//        }
+//    }
+  
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return dataSource.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        if isListView {
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: listCellId, for: indexPath) as? CuteDogsListCellView else {
+//                return UICollectionViewCell()
+//            }
+//            cell.setup(config: dataSource[indexPath.item])
+//            return cell
+//        } else {
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridCellId, for: indexPath) as? CuteDogsGridCellView else {
+//                return UICollectionViewCell()
+//            }
+//            cell.setup(config: dataSource[indexPath.item])
+//            return cell
+//        }
+//    }
+//
+//    private func cellController(at indexPath: IndexPath) -> CuteDogsCellConfiguration? {
+//        dataSource.itemIdentifier(for: indexPath)
+//    }
 }

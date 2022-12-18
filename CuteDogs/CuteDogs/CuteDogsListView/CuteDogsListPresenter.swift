@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final class CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
     
     private let docInteractor: DogBreedsInteractor
