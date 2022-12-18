@@ -175,6 +175,10 @@ extension CuteDogsListViewController: UICollectionViewDelegate {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("CuteDogsListViewController didSelectItemAt \(dataSource.itemIdentifier(for: indexPath)?.name)")
+    }
+    
 }
 // MARK: UICollectionViewDiffableDataSource
 
