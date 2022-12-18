@@ -42,7 +42,8 @@ final class TheDogAPIInteractor: DogBreedsInteractor {
 extension DogBreed {
     
     func map() -> CuteDog {
-        .init(breedName: self.name,
+        .init(id: String(self.id),
+              breedName: self.name,
               breedGroup: self.group ?? "",
               imageURL: URL(string: self.image.url),
               origin: self.origin ?? "Unknown",

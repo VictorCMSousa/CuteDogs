@@ -27,7 +27,7 @@
                             <rect key="frame" x="0.0" y="160" width="160" height="80"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDH-Sm-kuL">
-                                    <rect key="frame" x="0.0" y="11.999999999999998" width="160" height="20.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="4" width="160" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                             <constraints>
                                 <constraint firstItem="VDH-Sm-kuL" firstAttribute="leading" secondItem="zcu-Bc-r5L" secondAttribute="leading" id="9gk-9F-R0d"/>
                                 <constraint firstAttribute="trailing" secondItem="VDH-Sm-kuL" secondAttribute="trailing" id="aay-Mb-9s9"/>
-                                <constraint firstItem="VDH-Sm-kuL" firstAttribute="top" secondItem="zcu-Bc-r5L" secondAttribute="top" constant="12" id="nHq-Po-wgg"/>
+                                <constraint firstItem="VDH-Sm-kuL" firstAttribute="top" secondItem="zcu-Bc-r5L" secondAttribute="top" constant="4" id="nHq-Po-wgg"/>
                             </constraints>
                         </view>
                     </subviews>

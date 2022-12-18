@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let networkClient = NetworkClient(session: appSession)
         let dogBreedsInteractor = TheDogAPIInteractor(client: networkClient)
         
-        let presenter = CuteDogsListPresenter(docInteractor: dogBreedsInteractor)
+        let presenter = CuteDogsListPresenter(dogInteractor: dogBreedsInteractor, pageSize: 20, pageNumber: 0, fetchedAll: false)
         let cuteDogsViewController = CuteDogsListViewController(presenter: presenter)
         
         window?.rootViewController = cuteDogsViewController

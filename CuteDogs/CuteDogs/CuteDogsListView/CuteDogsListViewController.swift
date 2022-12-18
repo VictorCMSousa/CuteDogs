@@ -9,11 +9,12 @@ import UIKit
 
 protocol CuteDogsListViewControllerPresenter {
     
+    func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ())
 }
 
 struct CuteDogsCellConfiguration: Hashable, Comparable {
     
-    let id: Int
+    let id: String
     let name: String
     let dogImageURL: URL?
     
@@ -101,28 +102,26 @@ final class CuteDogsListViewController: UIViewController {
         collectionView.register(UINib(nibName:"CuteDogsListCellView", bundle: nil), forCellWithReuseIdentifier: listCellId)
         collectionView.register(UINib(nibName:"CuteDogsGridCellView", bundle: nil), forCellWithReuseIdentifier: gridCellId)
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
         collectionView.collectionViewLayout = listCVLayout
-        apply()
+        
+        presenter.loadMoreDogBreeds { [weak self] result in
+            
+            switch result {
+            case .success(let configs):
+                self?.setup(configs: configs)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
-    func apply() {
+    private func setup(configs: [CuteDogsCellConfiguration]) {
         
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
-        let configs: [CuteDogsCellConfiguration] = [.init(id: 1, name: "Siberian Husky", dogImageURL: nil),
-                                                    .init(id: 2, name: "Smooth Fox Terrier", dogImageURL: nil),
-                                                    .init(id: 3, name: "Rat Terrier", dogImageURL: nil),
-                                                    .init(id: 4, name: "Belgian Malinoise", dogImageURL: nil),
-                                                    .init(id: 5, name: "Bedlington Terrier", dogImageURL: nil),
-                                                    .init(id: 6, name: "Australian Kelpie", dogImageURL: nil),
-                                                    .init(id: 7, name: "Cairn Terrier", dogImageURL: nil),
-                                                    .init(id: 8, name: "Dalmatian", dogImageURL: nil),
-                                                    .init(id: 9, name: "Cairn Terrier", dogImageURL: nil),
-                                                    .init(id: 10, name: "Dalmatian", dogImageURL: nil),
-                                                    .init(id: 11, name: "Cardigan Welsh Corgi", dogImageURL: nil),
-         ]
         snapshot.appendItems(configs)
-        dataSource.apply(snapshot, animatingDifferences: false)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     private var waitStyleTransaction = false
@@ -151,6 +150,32 @@ final class CuteDogsListViewController: UIViewController {
     }
 }
 
+extension CuteDogsListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.item == collectionView.numberOfItems(inSection: 0) - 4 {
+            presenter.loadMoreDogBreeds { [weak self] result in
+                
+                switch result {
+                case .success(let configs):
+                    self?.render(configs: configs)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    private func render(configs: [CuteDogsCellConfiguration]) {
+        
+        guard !configs.isEmpty else { return }
+        var snapshot = dataSource.snapshot()
+        snapshot.appendItems(configs)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+}
 // MARK: UICollectionViewDiffableDataSource
 
 extension CuteDogsListViewController {

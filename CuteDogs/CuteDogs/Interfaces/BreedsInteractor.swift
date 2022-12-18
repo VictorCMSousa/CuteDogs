@@ -9,6 +9,7 @@ import Foundation
 
 struct CuteDog {
     
+    let id: String
     let breedName: String
     let breedGroup: String
     let imageURL: URL?
