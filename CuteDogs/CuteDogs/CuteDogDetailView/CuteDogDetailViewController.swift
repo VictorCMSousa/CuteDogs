@@ -29,7 +29,7 @@ final class CuteDogDetailViewController: UIViewController {
     @IBOutlet weak var breedOriginLabel: UILabel!
     
     @IBOutlet weak var temperamentStackView: UIStackView!
-    @IBOutlet weak var breedTemperament: UILabel!
+    @IBOutlet weak var breedTemperamentLabel: UILabel!
     
     private let presenter: CuteDogDetailViewControllerPresenter
     
@@ -57,7 +57,7 @@ final class CuteDogDetailViewController: UIViewController {
         breedOriginLabel.text = config.origin
         
         temperamentStackView.isHidden = config.temperament.isEmpty
-        breedTemperament.text = config.temperament
+        breedTemperamentLabel.text = config.temperament
         
     }
     

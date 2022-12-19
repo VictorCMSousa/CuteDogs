@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="breedCategoryLabel" destination="Uvb-lY-y2P" id="zjq-Oq-AO5"/>
                 <outlet property="breedOriginLabel" destination="5kp-gT-jsM" id="zCD-iI-EAf"/>
-                <outlet property="breedTemperament" destination="nr2-ka-fDn" id="DjG-4L-vlj"/>
+                <outlet property="breedTemperamentLabel" destination="nr2-ka-fDn" id="DjG-4L-vlj"/>
                 <outlet property="categoryStackView" destination="ieK-dG-lhx" id="CnA-yx-rJr"/>
                 <outlet property="originStackView" destination="6jL-wt-jYu" id="vWq-Qj-hl3"/>
                 <outlet property="temperamentStackView" destination="lzx-Xi-ijP" id="FUK-LH-Oq9"/>

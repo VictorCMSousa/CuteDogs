@@ -45,6 +45,10 @@
 		F5D02B7F2950C69D00582327 /* CuteDogsListViewControllerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B7E2950C69D00582327 /* CuteDogsListViewControllerPresenterSpy.swift */; };
 		F5D02B812950C6C700582327 /* CuteDogsCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B802950C6C700582327 /* CuteDogsCellConfiguration.swift */; };
 		F5D02B832950C6E800582327 /* CuteDogsListPresenterRouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B822950C6E800582327 /* CuteDogsListPresenterRouterSpy.swift */; };
+		F5D02B872950C78000582327 /* CuteDogDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B862950C78000582327 /* CuteDogDetailPresenterTests.swift */; };
+		F5D02B892950EE8800582327 /* CuteDogDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B882950EE8800582327 /* CuteDogDetailViewControllerTests.swift */; };
+		F5D02B8B2950F47400582327 /* CuteDogDetailViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B8A2950F47400582327 /* CuteDogDetailViewConfiguration.swift */; };
+		F5D02B8D2950F49900582327 /* CuteDogDetailViewControllerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B8C2950F49900582327 /* CuteDogDetailViewControllerPresenterSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +112,10 @@
 		F5D02B7E2950C69D00582327 /* CuteDogsListViewControllerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListViewControllerPresenterSpy.swift; sourceTree = "<group>"; };
 		F5D02B802950C6C700582327 /* CuteDogsCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsCellConfiguration.swift; sourceTree = "<group>"; };
 		F5D02B822950C6E800582327 /* CuteDogsListPresenterRouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListPresenterRouterSpy.swift; sourceTree = "<group>"; };
+		F5D02B862950C78000582327 /* CuteDogDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogDetailPresenterTests.swift; sourceTree = "<group>"; };
+		F5D02B882950EE8800582327 /* CuteDogDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		F5D02B8A2950F47400582327 /* CuteDogDetailViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogDetailViewConfiguration.swift; sourceTree = "<group>"; };
+		F5D02B8C2950F49900582327 /* CuteDogDetailViewControllerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogDetailViewControllerPresenterSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +194,7 @@
 		F5587F70294C84E100FA828E /* CuteDogsTests */ = {
 			isa = PBXGroup;
 			children = (
+				F5D02B852950C76600582327 /* CuteDogDetailView */,
 				F5897AFD294F81880012143B /* CuteDogsListView */,
 				F5897AFC294F81710012143B /* TheDogApi */,
 				F5587F9C294CC7F700FA828E /* Helpers */,
@@ -256,6 +265,7 @@
 				F5897B0429507A010012143B /* ImageLoaderInteractorSpy.swift */,
 				F5897B0629507A300012143B /* DogBreedsInteractorSpy.swift */,
 				F5D02B842950C70B00582327 /* CuteDogsListView */,
+				F5D02B8C2950F49900582327 /* CuteDogDetailViewControllerPresenterSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -275,6 +285,7 @@
 				F5897B00295079A50012143B /* URL.swift */,
 				F5897B02295079C40012143B /* CuteDog.swift */,
 				F5D02B802950C6C700582327 /* CuteDogsCellConfiguration.swift */,
+				F5D02B8A2950F47400582327 /* CuteDogDetailViewConfiguration.swift */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -334,6 +345,15 @@
 				F5D02B822950C6E800582327 /* CuteDogsListPresenterRouterSpy.swift */,
 			);
 			path = CuteDogsListView;
+			sourceTree = "<group>";
+		};
+		F5D02B852950C76600582327 /* CuteDogDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				F5D02B882950EE8800582327 /* CuteDogDetailViewControllerTests.swift */,
+				F5D02B862950C78000582327 /* CuteDogDetailPresenterTests.swift */,
+			);
+			path = CuteDogDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +514,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D02B8D2950F49900582327 /* CuteDogDetailViewControllerPresenterSpy.swift in Sources */,
+				F5D02B8B2950F47400582327 /* CuteDogDetailViewConfiguration.swift in Sources */,
 				F5897B0929507AC30012143B /* CuteDogsListViewControllerTests.swift in Sources */,
 				F5587F72294C84E100FA828E /* TheDogAPIInteractorTests.swift in Sources */,
 				F5587F9B294CC65700FA828E /* HTTPClientSpy.swift in Sources */,
@@ -503,10 +525,12 @@
 				F5897AFF294F819F0012143B /* CuteDogsListPresenterTests.swift in Sources */,
 				F5897B03295079C40012143B /* CuteDog.swift in Sources */,
 				F5D02B812950C6C700582327 /* CuteDogsCellConfiguration.swift in Sources */,
+				F5D02B872950C78000582327 /* CuteDogDetailPresenterTests.swift in Sources */,
 				F5D02B7F2950C69D00582327 /* CuteDogsListViewControllerPresenterSpy.swift in Sources */,
 				F5587FA1294CC8A300FA828E /* Data.swift in Sources */,
 				F5897B01295079A50012143B /* URL.swift in Sources */,
 				F5D02B832950C6E800582327 /* CuteDogsListPresenterRouterSpy.swift in Sources */,
+				F5D02B892950EE8800582327 /* CuteDogDetailViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
