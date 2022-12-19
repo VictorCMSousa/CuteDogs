@@ -50,3 +50,12 @@ extension DogBreed {
               breedTemperament: self.temperament ?? "")
     }
 }
+
+// MARK: ImageLoader
+
+extension TheDogAPIInteractor: ImageLoaderInteractor {
+    
+    func fetchImage(imageURL: URL) async throws -> Data? {
+        try await client.get(url: imageURL)
+    }
+}

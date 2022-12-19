@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class CuteDogsListCellView: UICollectionViewCell {
+protocol CellImageResource {
+    
+    func render(image: UIImage?)
+}
+
+final class CuteDogsListCellView: UICollectionViewCell, CellImageResource {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dogImageView: UIImageView!
@@ -16,6 +21,10 @@ final class CuteDogsListCellView: UICollectionViewCell {
         
         nameLabel.text = config.name
         
+    }
+    
+    func render(image: UIImage?) {
+        dogImageView.image = image ?? UIImage(named: "cute-placehold")
     }
 }
 

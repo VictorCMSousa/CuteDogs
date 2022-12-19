@@ -10,6 +10,8 @@ import UIKit
 protocol CuteDogsListViewControllerPresenter {
     
     func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ())
+    func load(imageURL: URL, completion: @escaping (UIImage?) -> ())
+    func cancelLoad(imageURL: URL)
 }
 
 struct CuteDogsCellConfiguration: Hashable, Comparable {
@@ -21,7 +23,6 @@ struct CuteDogsCellConfiguration: Hashable, Comparable {
     static func < (lhs: CuteDogsCellConfiguration, rhs: CuteDogsCellConfiguration) -> Bool {
         lhs.name < rhs.name
     }
-    
 }
 
 final class CuteDogsListViewController: UIViewController {
@@ -140,7 +141,6 @@ final class CuteDogsListViewController: UIViewController {
     }
     
     @IBAction func onSortButton(_ sender: Any) {
-        print("CuteDogsListViewController - onSortButton")
         var snapshot = dataSource.snapshot()
         let sortedElements = snapshot.itemIdentifiers(inSection: .main).sorted()
         snapshot.deleteAllItems()
@@ -165,6 +165,18 @@ extension CuteDogsListViewController: UICollectionViewDelegate {
                 }
             }
         }
+        
+        if let cell = cell as? CellImageResource, let imageURL = cellController(at: indexPath)?.dogImageURL {
+            presenter.load(imageURL: imageURL) { image in
+                cell.render(image: image)
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let imageURL = cellController(at: indexPath)?.dogImageURL {
+            presenter.cancelLoad(imageURL: imageURL)
+        }
     }
     
     private func render(configs: [CuteDogsCellConfiguration]) {
@@ -176,43 +188,11 @@ extension CuteDogsListViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("CuteDogsListViewController didSelectItemAt \(dataSource.itemIdentifier(for: indexPath)?.name)")
+        print("CuteDogsListViewController didSelectItemAt \(cellController(at: indexPath)?.name)")
     }
     
-}
-// MARK: UICollectionViewDiffableDataSource
-
-extension CuteDogsListViewController {
+    private func cellController(at indexPath: IndexPath) -> CuteDogsCellConfiguration? {
+        dataSource.itemIdentifier(for: indexPath)
+    }
     
-//    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-//        indexPaths.forEach { indexPath in
-//            let dsp = cellController(at: indexPath)?.dataSourcePrefetching
-//            dsp?.collectionView(collectionView, prefetchItemsAt: [indexPath])
-//        }
-//    }
-  
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return dataSource.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        if isListView {
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: listCellId, for: indexPath) as? CuteDogsListCellView else {
-//                return UICollectionViewCell()
-//            }
-//            cell.setup(config: dataSource[indexPath.item])
-//            return cell
-//        } else {
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridCellId, for: indexPath) as? CuteDogsGridCellView else {
-//                return UICollectionViewCell()
-//            }
-//            cell.setup(config: dataSource[indexPath.item])
-//            return cell
-//        }
-//    }
-//
-//    private func cellController(at indexPath: IndexPath) -> CuteDogsCellConfiguration? {
-//        dataSource.itemIdentifier(for: indexPath)
-//    }
 }

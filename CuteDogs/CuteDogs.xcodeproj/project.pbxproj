@@ -13,17 +13,21 @@
 		F5587F5F294C84E000FA828E /* CuteDogsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F5E294C84E000FA828E /* CuteDogsListViewController.swift */; };
 		F5587F64294C84E100FA828E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5587F63294C84E100FA828E /* Assets.xcassets */; };
 		F5587F67294C84E100FA828E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5587F65294C84E100FA828E /* LaunchScreen.storyboard */; };
-		F5587F72294C84E100FA828E /* TheDogAPIInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F71294C84E100FA828E /* TheDogAPIInteractor.swift */; };
+		F5587F72294C84E100FA828E /* TheDogAPIInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F71294C84E100FA828E /* TheDogAPIInteractorTests.swift */; };
 		F5587F7C294C84E100FA828E /* CuteDogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F7B294C84E100FA828E /* CuteDogsUITests.swift */; };
 		F5587F7E294C84E100FA828E /* CuteDogsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F7D294C84E100FA828E /* CuteDogsUITestsLaunchTests.swift */; };
 		F5587F8F294C8A4C00FA828E /* DogsBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F8E294C8A4C00FA828E /* DogsBreed.swift */; };
 		F5587F92294C91D900FA828E /* NetworkInfra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F91294C91D900FA828E /* NetworkInfra.swift */; };
-		F5587F94294C925000FA828E /* BreedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F93294C925000FA828E /* BreedsInteractor.swift */; };
+		F5587F94294C925000FA828E /* DogBreedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F93294C925000FA828E /* DogBreedsInteractor.swift */; };
 		F5587F97294C9C4000FA828E /* TheDogAPIInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F96294C9C4000FA828E /* TheDogAPIInteractor.swift */; };
 		F5587F9B294CC65700FA828E /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F9A294CC65700FA828E /* HTTPClientSpy.swift */; };
 		F5587F9E294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F9D294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift */; };
 		F5587FA1294CC8A300FA828E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587FA0294CC8A300FA828E /* Data.swift */; };
 		F5587FA4294CCBFF00FA828E /* CuteDogsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */; };
+		F5897AF7294F3CFC0012143B /* ImageLoaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */; };
+		F5897AF9294F3D5C0012143B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF8294F3D5C0012143B /* ImageCache.swift */; };
+		F5897AFB294F42B40012143B /* ImageLoaderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */; };
+		F5897AFF294F819F0012143B /* CuteDogsListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AFE294F819F0012143B /* CuteDogsListPresenterTests.swift */; };
 		F5B3A916294DF26900C989F4 /* CuteDogsListCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B3A915294DF26900C989F4 /* CuteDogsListCellView.xib */; };
 		F5B3A918294DF3F000C989F4 /* CuteDogsGridCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B3A917294DF3F000C989F4 /* CuteDogsGridCellView.xib */; };
 		F5B3A91A294DF4E000C989F4 /* CuteDogsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3A919294DF4E000C989F4 /* CuteDogsListCellView.swift */; };
@@ -57,19 +61,23 @@
 		F5587F66294C84E100FA828E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5587F68294C84E100FA828E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5587F6D294C84E100FA828E /* CuteDogsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CuteDogsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5587F71294C84E100FA828E /* TheDogAPIInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDogAPIInteractor.swift; sourceTree = "<group>"; };
+		F5587F71294C84E100FA828E /* TheDogAPIInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDogAPIInteractorTests.swift; sourceTree = "<group>"; };
 		F5587F77294C84E100FA828E /* CuteDogsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CuteDogsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5587F7B294C84E100FA828E /* CuteDogsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsUITests.swift; sourceTree = "<group>"; };
 		F5587F7D294C84E100FA828E /* CuteDogsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F5587F8A294C85CC00FA828E /* ApiKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ApiKey.xcconfig; sourceTree = "<group>"; };
 		F5587F8E294C8A4C00FA828E /* DogsBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsBreed.swift; sourceTree = "<group>"; };
 		F5587F91294C91D900FA828E /* NetworkInfra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfra.swift; sourceTree = "<group>"; };
-		F5587F93294C925000FA828E /* BreedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsInteractor.swift; sourceTree = "<group>"; };
+		F5587F93294C925000FA828E /* DogBreedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsInteractor.swift; sourceTree = "<group>"; };
 		F5587F96294C9C4000FA828E /* TheDogAPIInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDogAPIInteractor.swift; sourceTree = "<group>"; };
 		F5587F9A294CC65700FA828E /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		F5587F9D294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		F5587FA0294CC8A300FA828E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsListViewController.xib; sourceTree = "<group>"; };
+		F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractor.swift; sourceTree = "<group>"; };
+		F5897AF8294F3D5C0012143B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderAdapter.swift; sourceTree = "<group>"; };
+		F5897AFE294F819F0012143B /* CuteDogsListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListPresenterTests.swift; sourceTree = "<group>"; };
 		F5B3A915294DF26900C989F4 /* CuteDogsListCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsListCellView.xib; sourceTree = "<group>"; };
 		F5B3A917294DF3F000C989F4 /* CuteDogsGridCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsGridCellView.xib; sourceTree = "<group>"; };
 		F5B3A919294DF4E000C989F4 /* CuteDogsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListCellView.swift; sourceTree = "<group>"; };
@@ -150,9 +158,10 @@
 		F5587F70294C84E100FA828E /* CuteDogsTests */ = {
 			isa = PBXGroup;
 			children = (
+				F5897AFD294F81880012143B /* CuteDogsListView */,
+				F5897AFC294F81710012143B /* TheDogApi */,
 				F5587F9C294CC7F700FA828E /* Helpers */,
 				F5587F98294CC3E600FA828E /* TestDoubles */,
-				F5587F71294C84E100FA828E /* TheDogAPIInteractor.swift */,
 			);
 			path = CuteDogsTests;
 			sourceTree = "<group>";
@@ -195,7 +204,10 @@
 			isa = PBXGroup;
 			children = (
 				F5587F91294C91D900FA828E /* NetworkInfra.swift */,
-				F5587F93294C925000FA828E /* BreedsInteractor.swift */,
+				F5587F93294C925000FA828E /* DogBreedsInteractor.swift */,
+				F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */,
+				F5897AF8294F3D5C0012143B /* ImageCache.swift */,
+				F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -240,6 +252,22 @@
 				F5587F5C294C84E000FA828E /* SceneDelegate.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		F5897AFC294F81710012143B /* TheDogApi */ = {
+			isa = PBXGroup;
+			children = (
+				F5587F71294C84E100FA828E /* TheDogAPIInteractorTests.swift */,
+			);
+			path = TheDogApi;
+			sourceTree = "<group>";
+		};
+		F5897AFD294F81880012143B /* CuteDogsListView */ = {
+			isa = PBXGroup;
+			children = (
+				F5897AFE294F819F0012143B /* CuteDogsListPresenterTests.swift */,
+			);
+			path = CuteDogsListView;
 			sourceTree = "<group>";
 		};
 		F5B3A914294DF23900C989F4 /* View */ = {
@@ -389,8 +417,11 @@
 				F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */,
 				F5587F5F294C84E000FA828E /* CuteDogsListViewController.swift in Sources */,
 				F5587F97294C9C4000FA828E /* TheDogAPIInteractor.swift in Sources */,
-				F5587F94294C925000FA828E /* BreedsInteractor.swift in Sources */,
+				F5587F94294C925000FA828E /* DogBreedsInteractor.swift in Sources */,
 				F5B3A91A294DF4E000C989F4 /* CuteDogsListCellView.swift in Sources */,
+				F5897AF7294F3CFC0012143B /* ImageLoaderInteractor.swift in Sources */,
+				F5897AFB294F42B40012143B /* ImageLoaderAdapter.swift in Sources */,
+				F5897AF9294F3D5C0012143B /* ImageCache.swift in Sources */,
 				F5587F8F294C8A4C00FA828E /* DogsBreed.swift in Sources */,
 				F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */,
 				F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */,
@@ -403,9 +434,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5587F72294C84E100FA828E /* TheDogAPIInteractor.swift in Sources */,
+				F5587F72294C84E100FA828E /* TheDogAPIInteractorTests.swift in Sources */,
 				F5587F9B294CC65700FA828E /* HTTPClientSpy.swift in Sources */,
 				F5587F9E294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				F5897AFF294F819F0012143B /* CuteDogsListPresenterTests.swift in Sources */,
 				F5587FA1294CC8A300FA828E /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

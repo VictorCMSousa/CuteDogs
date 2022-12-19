@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CuteDogsGridCellView: UICollectionViewCell {
+final class CuteDogsGridCellView: UICollectionViewCell, CellImageResource {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dogImageView: UIImageView!
@@ -16,5 +16,9 @@ final class CuteDogsGridCellView: UICollectionViewCell {
         
         nameLabel.text = config.name
         
+    }
+    
+    func render(image: UIImage?) {
+        dogImageView.image = image ?? UIImage(named: "cute-placehold")
     }
 }

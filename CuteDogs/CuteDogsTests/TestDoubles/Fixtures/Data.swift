@@ -5,7 +5,7 @@
 //  Created by Victor Sousa on 16/12/2022.
 //
 
-import Foundation
+import UIKit
 
 extension Data {
     

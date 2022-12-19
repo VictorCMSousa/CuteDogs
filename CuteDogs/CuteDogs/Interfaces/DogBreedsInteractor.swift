@@ -1,5 +1,5 @@
 //
-//  BreedsInteractor.swift
+//  DogBreedsInteractor.swift
 //  CuteDogs
 //
 //  Created by Victor Sousa on 16/12/2022.
@@ -15,7 +15,6 @@ struct CuteDog {
     let imageURL: URL?
     let origin: String
     let breedTemperament: String
-    
 }
 
 protocol DogBreedsInteractor {

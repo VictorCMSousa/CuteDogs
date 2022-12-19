@@ -75,7 +75,7 @@ final class TheDogAPIInteractorTests: XCTestCase {
     
     func makeSUT(client: HTTPClient = HTTPClientSpy(),
                  file: StaticString = #filePath,
-                 line: UInt = #line) -> BreedsInteractor {
+                 line: UInt = #line) -> DogBreedsInteractor {
         
         let sut = TheDogAPIInteractor(client: client)
         trackForMemoryLeaks(sut, file: file, line: line)
