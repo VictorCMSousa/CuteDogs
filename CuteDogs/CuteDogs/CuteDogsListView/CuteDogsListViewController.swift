@@ -127,7 +127,6 @@ final class CuteDogsListViewController: UIViewController {
     
     private var waitStyleTransaction = false
     @IBAction func onStyleToggle(_ sender: Any) {
-
         guard !waitStyleTransaction else { return }
         waitStyleTransaction = true
         let buttonImage = isListView ? UIImage(systemName: "rectangle.grid.1x2") : UIImage(systemName: "square.grid.2x2")
@@ -154,7 +153,7 @@ extension CuteDogsListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if indexPath.item == collectionView.numberOfItems(inSection: 0) - 4 {
+        if indexPath.item == collectionView.numberOfItems(inSection: 0) - 1 {
             presenter.loadMoreDogBreeds { [weak self] result in
                 
                 switch result {
@@ -173,18 +172,18 @@ extension CuteDogsListViewController: UICollectionViewDelegate {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let imageURL = cellController(at: indexPath)?.dogImageURL {
-            presenter.cancelLoad(imageURL: imageURL)
-        }
-    }
-    
     private func render(configs: [CuteDogsCellConfiguration]) {
         
         guard !configs.isEmpty else { return }
         var snapshot = dataSource.snapshot()
         snapshot.appendItems(configs)
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let imageURL = cellController(at: indexPath)?.dogImageURL {
+            presenter.cancelLoad(imageURL: imageURL)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
