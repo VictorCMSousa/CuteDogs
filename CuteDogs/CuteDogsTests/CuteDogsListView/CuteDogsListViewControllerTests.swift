@@ -148,38 +148,3 @@ final class CuteDogsListViewControllerTests: XCTestCase {
         presenter.loadMoreDogBreedsCompletion[0](.success(dogsConfig))
     }
 }
-
-final class CuteDogsListViewControllerPresenterSpy: CuteDogsListViewControllerPresenter {
-    
-    var wantToShowDetailsIds = [String]()
-    func wantToShowDetails(id: String) {
-        wantToShowDetailsIds.append(id)
-    }
-    
-    var loadMoreDogBreedsCompletion = [(Result<[CuteDogsCellConfiguration], CuteDogs.ApiError>) -> ()]()
-    func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ()) {
-        loadMoreDogBreedsCompletion.append(completion)
-    }
-    
-    var askedURLs = [URL]()
-    var loadImageURLCompletion = [(UIImage?) -> ()]()
-    func load(imageURL: URL, completion: @escaping (UIImage?) -> ()) {
-        askedURLs.append(imageURL)
-        loadImageURLCompletion.append(completion)
-    }
-    var cancelLoadURLs = [URL]()
-    func cancelLoad(imageURL: URL) {
-        cancelLoadURLs.append(imageURL)
-    }
-}
-
-extension CuteDogsCellConfiguration {
-    
-    static let anyDogs = CuteDogsCellConfiguration(id: "123",
-                                                   name: "Any",
-                                                   dogImageURL: .any)
-    
-    static let zAnotherDogs = CuteDogsCellConfiguration(id: "321",
-                                                       name: "ZAnother",
-                                                       dogImageURL: .any)
-}

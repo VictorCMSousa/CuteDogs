@@ -299,11 +299,3 @@ final class CuteDogsListPresenterTests: XCTestCase {
         return sut
     }
 }
-
-final class CuteDogsListPresenterRouterSpy: CuteDogsListPresenterRouter {
-
-    var wantToShowDetailsInput = [CuteDog]()
-    func wantToShowDetails(of cuteDog: CuteDog) {
-        wantToShowDetailsInput.append(cuteDog)
-    }
-}
