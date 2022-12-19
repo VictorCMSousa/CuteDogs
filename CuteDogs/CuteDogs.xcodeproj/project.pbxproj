@@ -34,10 +34,13 @@
 		F5897B0729507A300012143B /* DogBreedsInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B0629507A300012143B /* DogBreedsInteractorSpy.swift */; };
 		F5897B0929507AC30012143B /* CuteDogsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B0829507AC30012143B /* CuteDogsListViewControllerTests.swift */; };
 		F5897B0B2950A8F60012143B /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B0A2950A8F60012143B /* AppFactory.swift */; };
+		F5897B0E2950AF100012143B /* CuteDogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B0D2950AF100012143B /* CuteDogDetailViewController.swift */; };
+		F5897B102950AF340012143B /* CuteDogDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5897B0F2950AF340012143B /* CuteDogDetailViewController.xib */; };
 		F5B3A916294DF26900C989F4 /* CuteDogsListCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B3A915294DF26900C989F4 /* CuteDogsListCellView.xib */; };
 		F5B3A918294DF3F000C989F4 /* CuteDogsGridCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B3A917294DF3F000C989F4 /* CuteDogsGridCellView.xib */; };
 		F5B3A91A294DF4E000C989F4 /* CuteDogsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3A919294DF4E000C989F4 /* CuteDogsListCellView.swift */; };
 		F5B3A91C294DF4EE00C989F4 /* CuteDogsGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3A91B294DF4EE00C989F4 /* CuteDogsGridCellView.swift */; };
+		F5D02B7B2950B17900582327 /* CuteDogsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B7A2950B17900582327 /* CuteDogsListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,10 +93,13 @@
 		F5897B0629507A300012143B /* DogBreedsInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsInteractorSpy.swift; sourceTree = "<group>"; };
 		F5897B0829507AC30012143B /* CuteDogsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListViewControllerTests.swift; sourceTree = "<group>"; };
 		F5897B0A2950A8F60012143B /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		F5897B0D2950AF100012143B /* CuteDogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogDetailViewController.swift; sourceTree = "<group>"; };
+		F5897B0F2950AF340012143B /* CuteDogDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogDetailViewController.xib; sourceTree = "<group>"; };
 		F5B3A915294DF26900C989F4 /* CuteDogsListCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsListCellView.xib; sourceTree = "<group>"; };
 		F5B3A917294DF3F000C989F4 /* CuteDogsGridCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsGridCellView.xib; sourceTree = "<group>"; };
 		F5B3A919294DF4E000C989F4 /* CuteDogsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListCellView.swift; sourceTree = "<group>"; };
 		F5B3A91B294DF4EE00C989F4 /* CuteDogsGridCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsGridCellView.swift; sourceTree = "<group>"; };
+		F5D02B7A2950B17900582327 /* CuteDogsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,7 @@
 				F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */,
 				F5587F5E294C84E000FA828E /* CuteDogsListViewController.swift */,
 				F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */,
+				F5D02B7A2950B17900582327 /* CuteDogsListRouter.swift */,
 			);
 			path = CuteDogsListView;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 			children = (
 				F5587F68294C84E100FA828E /* Info.plist */,
 				F5587FA2294CCB9900FA828E /* Main */,
+				F5897B0C2950AEF00012143B /* CuteDogDetailView */,
 				F53EC638294CD89E0044DE75 /* CuteDogsListView */,
 				F5587F65294C84E100FA828E /* LaunchScreen.storyboard */,
 				F5587F90294C91CB00FA828E /* Interfaces */,
@@ -288,6 +296,15 @@
 			path = CuteDogsListView;
 			sourceTree = "<group>";
 		};
+		F5897B0C2950AEF00012143B /* CuteDogDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				F5897B0F2950AF340012143B /* CuteDogDetailViewController.xib */,
+				F5897B0D2950AF100012143B /* CuteDogDetailViewController.swift */,
+			);
+			path = CuteDogDetailView;
+			sourceTree = "<group>";
+		};
 		F5B3A914294DF23900C989F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5587FA4294CCBFF00FA828E /* CuteDogsListViewController.xib in Resources */,
+				F5897B102950AF340012143B /* CuteDogDetailViewController.xib in Resources */,
 				F5587F67294C84E100FA828E /* LaunchScreen.storyboard in Resources */,
 				F5B3A918294DF3F000C989F4 /* CuteDogsGridCellView.xib in Resources */,
 				F5B3A916294DF26900C989F4 /* CuteDogsListCellView.xib in Resources */,
@@ -433,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */,
+				F5897B0E2950AF100012143B /* CuteDogDetailViewController.swift in Sources */,
 				F5587F5F294C84E000FA828E /* CuteDogsListViewController.swift in Sources */,
 				F5897B0B2950A8F60012143B /* AppFactory.swift in Sources */,
 				F5587F97294C9C4000FA828E /* TheDogAPIInteractor.swift in Sources */,
@@ -445,6 +464,7 @@
 				F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */,
 				F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */,
 				F5B3A91C294DF4EE00C989F4 /* CuteDogsGridCellView.swift in Sources */,
+				F5D02B7B2950B17900582327 /* CuteDogsListRouter.swift in Sources */,
 				F5587F92294C91D900FA828E /* NetworkInfra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

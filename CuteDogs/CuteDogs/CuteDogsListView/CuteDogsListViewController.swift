@@ -12,6 +12,7 @@ protocol CuteDogsListViewControllerPresenter {
     func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ())
     func load(imageURL: URL, completion: @escaping (UIImage?) -> ())
     func cancelLoad(imageURL: URL)
+    func wantToShowDetails(id: String)
 }
 
 struct CuteDogsCellConfiguration: Hashable, Comparable {
@@ -189,7 +190,9 @@ extension CuteDogsListViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("CuteDogsListViewController didSelectItemAt \(cellController(at: indexPath)?.name)")
+        
+        guard let cellConfig = cellController(at: indexPath) else { return }
+        presenter.wantToShowDetails(id: cellConfig.id)
     }
     
     private func cellController(at indexPath: IndexPath) -> CuteDogsCellConfiguration? {

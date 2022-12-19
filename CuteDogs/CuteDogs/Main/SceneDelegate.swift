@@ -15,8 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let cuteDogsListViewController = AppFactory.makeCuteDogsListView()
-        let navigationController = UINavigationController(rootViewController: cuteDogsListViewController)
+        let navigationController = UINavigationController()
+        let cuteDogsListViewController = AppFactory.makeCuteDogsListView(navigationController: navigationController)
+        navigationController.setViewControllers([cuteDogsListViewController], animated: false)
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

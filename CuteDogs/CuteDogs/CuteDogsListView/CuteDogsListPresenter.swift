@@ -8,18 +8,32 @@
 import Foundation
 import UIKit
 
+protocol CuteDogsListPresenterRouter {
+    
+    func wantToShowDetails(of: CuteDog)
+}
+
 final class CuteDogsListPresenter {
     
     private let dogInteractor: DogBreedsInteractor
     private let imageLoaderInteractor: ImageLoaderInteractor
+    private let router: CuteDogsListPresenterRouter
     private let pageSize: Int
     private var pageNumber: Int
     private var fetchedAll: Bool
     private var imagesTasks: [URL: Task<UIImage?, Never>] = [:]
+    private var fetchedDogs: Set<CuteDog> = .init([])
     
-    init(dogInteractor: DogBreedsInteractor, imageLoaderInteractor: ImageLoaderInteractor, pageSize: Int, pageNumber: Int, fetchedAll: Bool) {
+    init(dogInteractor: DogBreedsInteractor,
+         imageLoaderInteractor: ImageLoaderInteractor,
+         router: CuteDogsListPresenterRouter,
+         pageSize: Int,
+         pageNumber: Int,
+         fetchedAll: Bool) {
+        
         self.dogInteractor = dogInteractor
         self.imageLoaderInteractor = imageLoaderInteractor
+        self.router = router
         self.pageSize = pageSize
         self.pageNumber = pageNumber
         self.fetchedAll = fetchedAll
@@ -27,6 +41,11 @@ final class CuteDogsListPresenter {
 }
 
 extension CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
+    
+    func wantToShowDetails(id: String) {
+        guard let selectedBreed = fetchedDogs.first(where: { $0.id == id }) else { return }
+        router.wantToShowDetails(of: selectedBreed)
+    }
     
     func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ()) {
         
@@ -39,6 +58,7 @@ extension CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
                 let cuteDogsBreeds = try await dogInteractor.fetchBreeds(size: pageSize, pageNumber: pageNumber)
                 fetchedAll = cuteDogsBreeds.count < pageSize
                 pageNumber += !fetchedAll ? 1 : 0
+                fetchedDogs.formUnion(cuteDogsBreeds)
                 let configs: [CuteDogsCellConfiguration] = cuteDogsBreeds.map(map)
                 DispatchQueue.main.async {
                     completion(.success(configs))

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CuteDog {
+struct CuteDog: Hashable {
     
     let id: String
     let breedName: String

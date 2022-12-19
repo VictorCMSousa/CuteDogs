@@ -13,16 +13,25 @@ final class AppFactory {
     private static let networkClient = NetworkClient(session: appSession)
     private static let dogBreedsInteractor = TheDogAPIInteractor(client: networkClient)
     private static let imageLoaderInteractor = ImageLoaderAdapter(imageLoader: dogBreedsInteractor,
-                                          cacheLoader: ImageCacheLoader())
+                                                                  cacheLoader: ImageCacheLoader())
     
-    static func makeCuteDogsListView() -> CuteDogsListViewController {
+    static func makeCuteDogsListView(navigationController: UINavigationController) -> CuteDogsListViewController {
         
+        let router = CuteDogsListRouter(navigationController: navigationController)
         let presenter = CuteDogsListPresenter(dogInteractor: dogBreedsInteractor,
                                               imageLoaderInteractor: imageLoaderInteractor,
+                                              router: router,
                                               pageSize: 20,
                                               pageNumber: 0,
                                               fetchedAll: false)
         let cuteDogsViewController = CuteDogsListViewController(presenter: presenter)
         return cuteDogsViewController
     }
+    
+    static func makeCuteDogDetailView(cuteDog: CuteDog) -> CuteDogDetailViewController {
+        
+        let cuteDogDetailViewController = CuteDogDetailViewController()
+        return cuteDogDetailViewController
+    }
 }
+
