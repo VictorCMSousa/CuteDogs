@@ -11,22 +11,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let appSession = URLSession(configuration: .default)
-        let networkClient = NetworkClient(session: appSession)
-        let dogBreedsInteractor = TheDogAPIInteractor(client: networkClient)
+        let cuteDogsListViewController = AppFactory.makeCuteDogsListView()
+        let navigationController = UINavigationController(rootViewController: cuteDogsListViewController)
         
-        let presenter = CuteDogsListPresenter(dogInteractor: dogBreedsInteractor,
-                                              imageLoaderInteractor: ImageLoaderAdapter(imageLoader: dogBreedsInteractor,
-                                                                                        cacheLoader: ImageCacheLoader()),
-                                              pageSize: 20, pageNumber: 0, fetchedAll: false)
-        let cuteDogsViewController = CuteDogsListViewController(presenter: presenter)
-        
-        window?.rootViewController = cuteDogsViewController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

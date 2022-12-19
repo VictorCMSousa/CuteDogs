@@ -33,6 +33,7 @@
 		F5897B0529507A010012143B /* ImageLoaderInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B0429507A010012143B /* ImageLoaderInteractorSpy.swift */; };
 		F5897B0729507A300012143B /* DogBreedsInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B0629507A300012143B /* DogBreedsInteractorSpy.swift */; };
 		F5897B0929507AC30012143B /* CuteDogsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B0829507AC30012143B /* CuteDogsListViewControllerTests.swift */; };
+		F5897B0B2950A8F60012143B /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B0A2950A8F60012143B /* AppFactory.swift */; };
 		F5B3A916294DF26900C989F4 /* CuteDogsListCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B3A915294DF26900C989F4 /* CuteDogsListCellView.xib */; };
 		F5B3A918294DF3F000C989F4 /* CuteDogsGridCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B3A917294DF3F000C989F4 /* CuteDogsGridCellView.xib */; };
 		F5B3A91A294DF4E000C989F4 /* CuteDogsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3A919294DF4E000C989F4 /* CuteDogsListCellView.swift */; };
@@ -88,6 +89,7 @@
 		F5897B0429507A010012143B /* ImageLoaderInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractorSpy.swift; sourceTree = "<group>"; };
 		F5897B0629507A300012143B /* DogBreedsInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsInteractorSpy.swift; sourceTree = "<group>"; };
 		F5897B0829507AC30012143B /* CuteDogsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListViewControllerTests.swift; sourceTree = "<group>"; };
+		F5897B0A2950A8F60012143B /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		F5B3A915294DF26900C989F4 /* CuteDogsListCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsListCellView.xib; sourceTree = "<group>"; };
 		F5B3A917294DF3F000C989F4 /* CuteDogsGridCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsGridCellView.xib; sourceTree = "<group>"; };
 		F5B3A919294DF4E000C989F4 /* CuteDogsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListCellView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				F5587F5A294C84E000FA828E /* AppDelegate.swift */,
 				F5587F5C294C84E000FA828E /* SceneDelegate.swift */,
+				F5897B0A2950A8F60012143B /* AppFactory.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 			files = (
 				F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */,
 				F5587F5F294C84E000FA828E /* CuteDogsListViewController.swift in Sources */,
+				F5897B0B2950A8F60012143B /* AppFactory.swift in Sources */,
 				F5587F97294C9C4000FA828E /* TheDogAPIInteractor.swift in Sources */,
 				F5587F94294C925000FA828E /* DogBreedsInteractor.swift in Sources */,
 				F5B3A91A294DF4E000C989F4 /* CuteDogsListCellView.swift in Sources */,

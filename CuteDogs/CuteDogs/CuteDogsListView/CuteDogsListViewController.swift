@@ -100,6 +100,8 @@ final class CuteDogsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Cute Dogs"
+        
         collectionView.register(UINib(nibName:"CuteDogsListCellView", bundle: nil), forCellWithReuseIdentifier: listCellId)
         collectionView.register(UINib(nibName:"CuteDogsGridCellView", bundle: nil), forCellWithReuseIdentifier: gridCellId)
         collectionView.dataSource = dataSource
