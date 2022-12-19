@@ -116,6 +116,18 @@ final class CuteDogsListViewControllerTests: XCTestCase {
         XCTAssertEqual(presenter.cancelLoadURLs, [CuteDogsCellConfiguration.anyDogs.dogImageURL])
     }
     
+    func test_selectCell_askToShowDogBreed() {
+        
+        let presenter = CuteDogsListViewControllerPresenterSpy()
+        let sut = makeSUT(presenter: presenter)
+        loadView(dogsConfig: [.anyDogs], presenter: presenter, sut: sut)
+        let indexPath = IndexPath(item: 0, section: 0)
+        
+        sut.collectionView(sut.collectionView, didSelectItemAt: indexPath)
+        
+        XCTAssertEqual(presenter.wantToShowDetailsIds, [CuteDogsCellConfiguration.anyDogs.id])
+    }
+    
     func makeSUT(presenter: CuteDogsListViewControllerPresenter = CuteDogsListViewControllerPresenterSpy(),
                  file: StaticString = #filePath,
                  line: UInt = #line) -> CuteDogsListViewController {
@@ -138,6 +150,11 @@ final class CuteDogsListViewControllerTests: XCTestCase {
 }
 
 final class CuteDogsListViewControllerPresenterSpy: CuteDogsListViewControllerPresenter {
+    
+    var wantToShowDetailsIds = [String]()
+    func wantToShowDetails(id: String) {
+        wantToShowDetailsIds.append(id)
+    }
     
     var loadMoreDogBreedsCompletion = [(Result<[CuteDogsCellConfiguration], CuteDogs.ApiError>) -> ()]()
     func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ()) {

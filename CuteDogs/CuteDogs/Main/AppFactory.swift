@@ -30,7 +30,8 @@ final class AppFactory {
     
     static func makeCuteDogDetailView(cuteDog: CuteDog) -> CuteDogDetailViewController {
         
-        let cuteDogDetailViewController = CuteDogDetailViewController()
+        let presenter = CuteDogDetailPresenter(cuteDog: cuteDog)
+        let cuteDogDetailViewController = CuteDogDetailViewController(presenter: presenter)
         return cuteDogDetailViewController
     }
 }

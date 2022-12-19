@@ -258,8 +258,31 @@ final class CuteDogsListPresenterTests: XCTestCase {
         XCTAssertNil(capturedImage)
     }
     
+    func test_wantToShowDetails_askRouterToShow() {
+        let dogInteractor = DogBreedsInteractorSpy()
+        let router = CuteDogsListPresenterRouterSpy()
+        let sut = makeSUT(dogInteractor: dogInteractor,
+                          router: router)
+        
+        let exp = expectation(description: "waiting completion")
+        
+        dogInteractor.fetchBreedsAction = { _, _ in
+            return [.anyDogBreed]
+        }
+
+        sut.loadMoreDogBreeds(completion: { _ in
+            exp.fulfill()
+        })
+        
+        wait(for: [exp], timeout: 0.1)
+        sut.wantToShowDetails(id: CuteDog.anyDogBreed.id)
+        XCTAssertEqual(router.wantToShowDetailsInput, [.anyDogBreed])
+        
+    }
+    
     func makeSUT(dogInteractor: DogBreedsInteractor = DogBreedsInteractorSpy(),
                  imageLoaderInteractor: ImageLoaderInteractor = ImageLoaderInteractorSpy(),
+                 router: CuteDogsListPresenterRouter = CuteDogsListPresenterRouterSpy(),
                  pageSize: Int = 20,
                  pageNumber: Int = 0,
                  fetchedAll: Bool = false,
@@ -268,10 +291,19 @@ final class CuteDogsListPresenterTests: XCTestCase {
         
         let sut = CuteDogsListPresenter(dogInteractor: dogInteractor,
                                         imageLoaderInteractor: imageLoaderInteractor,
+                                        router: router,
                                         pageSize: pageSize,
                                         pageNumber: pageNumber,
                                         fetchedAll: fetchedAll)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
+    }
+}
+
+final class CuteDogsListPresenterRouterSpy: CuteDogsListPresenterRouter {
+
+    var wantToShowDetailsInput = [CuteDog]()
+    func wantToShowDetails(of cuteDog: CuteDog) {
+        wantToShowDetailsInput.append(cuteDog)
     }
 }

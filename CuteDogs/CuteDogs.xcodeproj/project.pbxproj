@@ -41,6 +41,7 @@
 		F5B3A91A294DF4E000C989F4 /* CuteDogsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3A919294DF4E000C989F4 /* CuteDogsListCellView.swift */; };
 		F5B3A91C294DF4EE00C989F4 /* CuteDogsGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3A91B294DF4EE00C989F4 /* CuteDogsGridCellView.swift */; };
 		F5D02B7B2950B17900582327 /* CuteDogsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B7A2950B17900582327 /* CuteDogsListRouter.swift */; };
+		F5D02B7D2950B33900582327 /* CuteDogDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B7C2950B33900582327 /* CuteDogDetailPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		F5B3A919294DF4E000C989F4 /* CuteDogsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListCellView.swift; sourceTree = "<group>"; };
 		F5B3A91B294DF4EE00C989F4 /* CuteDogsGridCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsGridCellView.swift; sourceTree = "<group>"; };
 		F5D02B7A2950B17900582327 /* CuteDogsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListRouter.swift; sourceTree = "<group>"; };
+		F5D02B7C2950B33900582327 /* CuteDogDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogDetailPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 			children = (
 				F5897B0F2950AF340012143B /* CuteDogDetailViewController.xib */,
 				F5897B0D2950AF100012143B /* CuteDogDetailViewController.swift */,
+				F5D02B7C2950B33900582327 /* CuteDogDetailPresenter.swift */,
 			);
 			path = CuteDogDetailView;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				F5587F8F294C8A4C00FA828E /* DogsBreed.swift in Sources */,
 				F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */,
 				F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */,
+				F5D02B7D2950B33900582327 /* CuteDogDetailPresenter.swift in Sources */,
 				F5B3A91C294DF4EE00C989F4 /* CuteDogsGridCellView.swift in Sources */,
 				F5D02B7B2950B17900582327 /* CuteDogsListRouter.swift in Sources */,
 				F5587F92294C91D900FA828E /* NetworkInfra.swift in Sources */,

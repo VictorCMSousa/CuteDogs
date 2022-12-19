@@ -42,11 +42,6 @@ final class CuteDogsListPresenter {
 
 extension CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
     
-    func wantToShowDetails(id: String) {
-        guard let selectedBreed = fetchedDogs.first(where: { $0.id == id }) else { return }
-        router.wantToShowDetails(of: selectedBreed)
-    }
-    
     func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ()) {
         
         guard !fetchedAll else {
@@ -99,5 +94,10 @@ extension CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
     func cancelLoad(imageURL: URL) {
         imagesTasks[imageURL]?.cancel()
         imagesTasks[imageURL] = nil
+    }
+    
+    func wantToShowDetails(id: String) {
+        guard let selectedBreed = fetchedDogs.first(where: { $0.id == id }) else { return }
+        router.wantToShowDetails(of: selectedBreed)
     }
 }
