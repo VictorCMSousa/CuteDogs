@@ -275,38 +275,3 @@ final class CuteDogsListPresenterTests: XCTestCase {
         return sut
     }
 }
-
-final class DogBreedsInteractorSpy: DogBreedsInteractor {
-    
-    var fetchBreedsAction: (Int, Int) throws -> ([CuteDog]) = { _,_ in return []}
-
-    func fetchBreeds(size: Int, pageNumber: Int) async throws -> [CuteDog] {
-        try fetchBreedsAction(size, pageNumber)
-    }
-}
-
-final class ImageLoaderInteractorSpy: ImageLoaderInteractor {
-    
-    var fetchImageAction: (URL) throws -> (Data?) = { _ in return nil}
-    func fetchImage(imageURL: URL) async throws -> Data? {
-        try fetchImageAction(imageURL)
-    }
-}
-
-extension CuteDog {
-    
-    static let anyDogBreed = CuteDog(id: "123",
-                                      breedName: "any dog",
-                                      breedGroup: "any",
-                                      imageURL: URL(string: "https://cdn2.thedogapi.com/images/B12BnxcVQ.jpg"),
-                                      origin: "any",
-                                      breedTemperament: "Any")
-    
-}
-
-extension URL {
-    
-    static let any = URL(string: "https://cdn2.thedogapi.com/images/B12BnxcVQ.jpg")!
-}
-
-
