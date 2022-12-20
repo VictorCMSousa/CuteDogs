@@ -11,9 +11,9 @@ final class ImageLoaderAdapter: ImageLoaderInteractor {
     
     
     private let imageLoader: ImageLoaderInteractor
-    private let cacheLoader: ImageCache & ImageLoaderInteractor
+    private let cacheLoader: ImageCacheLoaderInteractor
     
-    init(imageLoader: ImageLoaderInteractor, cacheLoader: ImageCache & ImageLoaderInteractor) {
+    init(imageLoader: ImageLoaderInteractor, cacheLoader: ImageCacheLoaderInteractor) {
         self.imageLoader = imageLoader
         self.cacheLoader = cacheLoader
     }

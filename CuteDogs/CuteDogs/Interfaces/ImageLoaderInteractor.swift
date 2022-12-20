@@ -12,7 +12,7 @@ protocol ImageLoaderInteractor {
     func fetchImage(imageURL: URL) async throws -> Data?
 }
 
-protocol ImageCache {
+protocol ImageCacheLoaderInteractor: ImageLoaderInteractor {
     
-    func save(_ image: Data, for url: URL)
+    func save(_ data: Data, for url: URL)
 }

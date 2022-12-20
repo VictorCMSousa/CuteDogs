@@ -7,9 +7,14 @@
 
 import Foundation
 
-final class ImageCacheLoader: ImageLoaderInteractor, ImageCache {
+final class ImageCacheLoader: ImageCacheLoaderInteractor {
     
     private let myQueue = DispatchQueue(label: "my.imageCache", attributes: .concurrent)
+    private let baseDirectory: FileManager.SearchPathDirectory
+    
+    init(baseDirectory: FileManager.SearchPathDirectory) {
+        self.baseDirectory = baseDirectory
+    }
     
     func fetchImage(imageURL: URL) async throws -> Data? {
         myQueue.sync {
@@ -35,9 +40,9 @@ final class ImageCacheLoader: ImageLoaderInteractor, ImageCache {
     
     private func fileName(for url: URL) -> URL? {
         guard let fileName = url.lastPathComponent.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
-              let applicationSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else {
+              let basePath = FileManager.default.urls(for: baseDirectory, in: .userDomainMask).first else {
             return nil
         }
-        return applicationSupport.appendingPathComponent(fileName)
+        return basePath.appendingPathComponent(fileName)
     }
 }
