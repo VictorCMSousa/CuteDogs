@@ -26,5 +26,10 @@ final class CuteDogsListCellView: UICollectionViewCell, CellImageResource {
     func render(image: UIImage?) {
         dogImageView.image = image ?? UIImage(named: "cute-placehold")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        dogImageView.image = UIImage(named: "cute-placehold")
+    }
 }
 
