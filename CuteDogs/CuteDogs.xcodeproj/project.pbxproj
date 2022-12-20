@@ -25,7 +25,7 @@
 		F5587FA1294CC8A300FA828E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587FA0294CC8A300FA828E /* Data.swift */; };
 		F5587FA4294CCBFF00FA828E /* CuteDogsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */; };
 		F5897AF7294F3CFC0012143B /* ImageLoaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */; };
-		F5897AF9294F3D5C0012143B /* ImageCacheLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF8294F3D5C0012143B /* ImageCacheLoader.swift */; };
+		F5897AF9294F3D5C0012143B /* ImageCacheLoaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF8294F3D5C0012143B /* ImageCacheLoaderInteractor.swift */; };
 		F5897AFB294F42B40012143B /* ImageLoaderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */; };
 		F5897AFF294F819F0012143B /* CuteDogsListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AFE294F819F0012143B /* CuteDogsListPresenterTests.swift */; };
 		F5897B01295079A50012143B /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897B00295079A50012143B /* URL.swift */; };
@@ -50,6 +50,7 @@
 		F5D02B8B2950F47400582327 /* CuteDogDetailViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B8A2950F47400582327 /* CuteDogDetailViewConfiguration.swift */; };
 		F5D02B8D2950F49900582327 /* CuteDogDetailViewControllerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B8C2950F49900582327 /* CuteDogDetailViewControllerPresenterSpy.swift */; };
 		F5D02B912951B67B00582327 /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B902951B67B00582327 /* ImageCacheTests.swift */; };
+		F5D02B932951BED300582327 /* ImageLoaderAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D02B922951BED300582327 /* ImageLoaderAdapterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +94,7 @@
 		F5587FA0294CC8A300FA828E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsListViewController.xib; sourceTree = "<group>"; };
 		F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractor.swift; sourceTree = "<group>"; };
-		F5897AF8294F3D5C0012143B /* ImageCacheLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheLoader.swift; sourceTree = "<group>"; };
+		F5897AF8294F3D5C0012143B /* ImageCacheLoaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheLoaderInteractor.swift; sourceTree = "<group>"; };
 		F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderAdapter.swift; sourceTree = "<group>"; };
 		F5897AFE294F819F0012143B /* CuteDogsListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListPresenterTests.swift; sourceTree = "<group>"; };
 		F5897B00295079A50012143B /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		F5D02B8A2950F47400582327 /* CuteDogDetailViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogDetailViewConfiguration.swift; sourceTree = "<group>"; };
 		F5D02B8C2950F49900582327 /* CuteDogDetailViewControllerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogDetailViewControllerPresenterSpy.swift; sourceTree = "<group>"; };
 		F5D02B902951B67B00582327 /* ImageCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheTests.swift; sourceTree = "<group>"; };
+		F5D02B922951BED300582327 /* ImageLoaderAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderAdapterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,7 +363,7 @@
 		F5D02B8E2951B5FF00582327 /* ImageStore */ = {
 			isa = PBXGroup;
 			children = (
-				F5897AF8294F3D5C0012143B /* ImageCacheLoader.swift */,
+				F5897AF8294F3D5C0012143B /* ImageCacheLoaderInteractor.swift */,
 				F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */,
 			);
 			path = ImageStore;
@@ -371,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				F5D02B902951B67B00582327 /* ImageCacheTests.swift */,
+				F5D02B922951BED300582327 /* ImageLoaderAdapterTests.swift */,
 			);
 			path = ImageStore;
 			sourceTree = "<group>";
@@ -518,7 +521,7 @@
 				F5B3A91A294DF4E000C989F4 /* CuteDogsListCellView.swift in Sources */,
 				F5897AF7294F3CFC0012143B /* ImageLoaderInteractor.swift in Sources */,
 				F5897AFB294F42B40012143B /* ImageLoaderAdapter.swift in Sources */,
-				F5897AF9294F3D5C0012143B /* ImageCacheLoader.swift in Sources */,
+				F5897AF9294F3D5C0012143B /* ImageCacheLoaderInteractor.swift in Sources */,
 				F5587F8F294C8A4C00FA828E /* DogsBreed.swift in Sources */,
 				F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */,
 				F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */,
@@ -538,6 +541,7 @@
 				F5897B0929507AC30012143B /* CuteDogsListViewControllerTests.swift in Sources */,
 				F5587F72294C84E100FA828E /* TheDogAPIInteractorTests.swift in Sources */,
 				F5587F9B294CC65700FA828E /* HTTPClientSpy.swift in Sources */,
+				F5D02B932951BED300582327 /* ImageLoaderAdapterTests.swift in Sources */,
 				F5897B0529507A010012143B /* ImageLoaderInteractorSpy.swift in Sources */,
 				F5897B0729507A300012143B /* DogBreedsInteractorSpy.swift in Sources */,
 				F5587F9E294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift in Sources */,

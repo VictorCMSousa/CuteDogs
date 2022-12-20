@@ -9,7 +9,6 @@ import Foundation
 
 final class ImageLoaderAdapter: ImageLoaderInteractor {
     
-    
     private let imageLoader: ImageLoaderInteractor
     private let cacheLoader: ImageCacheLoaderInteractor
     
@@ -23,7 +22,7 @@ final class ImageLoaderAdapter: ImageLoaderInteractor {
         if let imageData = try? await cacheLoader.fetchImage(imageURL: imageURL) {
             return imageData
         }
-        guard let imageData = try await imageLoader.fetchImage(imageURL: imageURL) else {
+        guard let imageData = try? await imageLoader.fetchImage(imageURL: imageURL) else {
             return nil
         }
         cacheLoader.save(imageData, for: imageURL)
