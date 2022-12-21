@@ -26,7 +26,7 @@ struct CuteDogsCellConfiguration: Hashable, Comparable {
     }
 }
 
-final class CuteDogsListViewController: UIViewController {
+final class CuteDogsListViewController: UIViewController, Toastable {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var listStyleToggleButton: UIButton!
@@ -110,7 +110,7 @@ final class CuteDogsListViewController: UIViewController {
             case .success(let configs):
                 self?.setup(configs: configs)
             case .failure(let error):
-                print(error)
+                self?.showToast(message: error.description)
             }
         }
     }
@@ -158,7 +158,7 @@ extension CuteDogsListViewController: UICollectionViewDelegate {
                 case .success(let configs):
                     self?.render(configs: configs)
                 case .failure(let error):
-                    print(error)
+                    self?.showToast(message: error.description)
                 }
             }
         }

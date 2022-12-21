@@ -14,7 +14,7 @@ protocol SearchResultViewControllerPresenter {
     func wantToShowDetails(id: String)
 }
 
-final class SearchCuteDogViewController: UIViewController, UISearchResultsUpdating {
+final class SearchCuteDogViewController: UIViewController, UISearchResultsUpdating, Toastable {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -82,7 +82,7 @@ final class SearchCuteDogViewController: UIViewController, UISearchResultsUpdati
                 self?.rowsConfigs = cuteDogs
                 self?.tableView.reloadData()
             case let .failure(error):
-                print(error)
+                self?.showToast(message: error.description)
             }
         })
     }

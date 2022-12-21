@@ -26,6 +26,16 @@ enum ApiError: String, Error {
     case decodeError
     case apiError
     case invalidURLFormat
+    
+    var description: String {
+        
+        switch self {
+        case .apiError: return "Ops! Api Error"
+        case .invalidURLFormat: return "Ops! Invalid URL formart"
+        case .decodeError: return "Ops! Somethig change, decode error"
+        case .invalidResponse: return "Ops! Invalid response"
+        }
+    }
 }
 
 final class NetworkClient: HTTPClient {

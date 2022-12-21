@@ -38,9 +38,6 @@ final class TheDogAPIInteractor: DogBreedsInteractor {
         
         guard let url = componentURL?.url else { throw ApiError.invalidURLFormat }
         let data = try await client.get(url: url)
-        do {
-            let _ = try JSONDecoder().decode(T.self, from: data)
-        } catch { print(error)}
         
         guard let decoded = try? JSONDecoder().decode(T.self, from: data) else {
             throw ApiError.decodeError

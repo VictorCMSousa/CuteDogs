@@ -43,6 +43,7 @@
 		F577A4DE295335C4005C736A /* SearchCuteDogViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4DD295335C4005C736A /* SearchCuteDogViewControllerTests.swift */; };
 		F577A4E029533E1B005C736A /* SeachCuteDogRowViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4DF29533E1B005C736A /* SeachCuteDogRowViewConfiguration.swift */; };
 		F577A4E229533E56005C736A /* SearchResultViewControllerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4E129533E56005C736A /* SearchResultViewControllerPresenterSpy.swift */; };
+		F577A4E429535AC2005C736A /* Toastable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4E329535AC2005C736A /* Toastable.swift */; };
 		F5897AF7294F3CFC0012143B /* ImageLoaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */; };
 		F5897AF9294F3D5C0012143B /* ImageCacheLoaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF8294F3D5C0012143B /* ImageCacheLoaderInteractor.swift */; };
 		F5897AFB294F42B40012143B /* ImageLoaderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */; };
@@ -131,6 +132,7 @@
 		F577A4DD295335C4005C736A /* SearchCuteDogViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCuteDogViewControllerTests.swift; sourceTree = "<group>"; };
 		F577A4DF29533E1B005C736A /* SeachCuteDogRowViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachCuteDogRowViewConfiguration.swift; sourceTree = "<group>"; };
 		F577A4E129533E56005C736A /* SearchResultViewControllerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewControllerPresenterSpy.swift; sourceTree = "<group>"; };
+		F577A4E329535AC2005C736A /* Toastable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toastable.swift; sourceTree = "<group>"; };
 		F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractor.swift; sourceTree = "<group>"; };
 		F5897AF8294F3D5C0012143B /* ImageCacheLoaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheLoaderInteractor.swift; sourceTree = "<group>"; };
 		F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderAdapter.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				F509850A29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift */,
 				F509850C29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift */,
+				F577A4E329535AC2005C736A /* Toastable.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				F5B3A91A294DF4E000C989F4 /* CuteDogsListCellView.swift in Sources */,
 				F5897AF7294F3CFC0012143B /* ImageLoaderInteractor.swift in Sources */,
 				F5897AFB294F42B40012143B /* ImageLoaderAdapter.swift in Sources */,
+				F577A4E429535AC2005C736A /* Toastable.swift in Sources */,
 				F5897AF9294F3D5C0012143B /* ImageCacheLoaderInteractor.swift in Sources */,
 				F5587F8F294C8A4C00FA828E /* DogBreed.swift in Sources */,
 				F509850D29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift in Sources */,
