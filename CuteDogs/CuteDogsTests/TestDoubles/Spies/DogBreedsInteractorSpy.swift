@@ -12,7 +12,7 @@ final class DogBreedsInteractorSpy: DogBreedsInteractor {
     
     var fetchBreedsAction: (Int, Int) throws -> ([CuteDog]) = { _,_ in return []}
 
-    func fetchBreeds(size: Int, pageNumber: Int) async throws -> [CuteDog] {
+    func fetchCuteDogs(size: Int, pageNumber: Int) async throws -> [CuteDog] {
         try fetchBreedsAction(size, pageNumber)
     }
 }

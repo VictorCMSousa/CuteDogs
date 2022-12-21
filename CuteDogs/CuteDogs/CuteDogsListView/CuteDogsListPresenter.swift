@@ -50,7 +50,7 @@ extension CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
         }
         Task {
             do {
-                let cuteDogsBreeds = try await dogInteractor.fetchBreeds(size: pageSize, pageNumber: pageNumber)
+                let cuteDogsBreeds = try await dogInteractor.fetchCuteDogs(size: pageSize, pageNumber: pageNumber)
                 fetchedAll = cuteDogsBreeds.count < pageSize
                 pageNumber += !fetchedAll ? 1 : 0
                 fetchedDogs.formUnion(cuteDogsBreeds)

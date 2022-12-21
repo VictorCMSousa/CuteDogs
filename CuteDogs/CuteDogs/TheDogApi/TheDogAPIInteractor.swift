@@ -21,7 +21,7 @@ final class TheDogAPIInteractor: DogBreedsInteractor {
         self.client = client
     }
     
-    func fetchBreeds(size: Int, pageNumber: Int) async throws -> [CuteDog] {
+    func fetchCuteDogs(size: Int, pageNumber: Int) async throws -> [CuteDog] {
         
         var componentURL = URLComponents(url: baseURL.appendingPathComponent("v1/breeds"),
                                          resolvingAgainstBaseURL: true)
@@ -30,32 +30,55 @@ final class TheDogAPIInteractor: DogBreedsInteractor {
             URLQueryItem(name: "page", value: String(pageNumber))
         ]
         
-        guard let breedsUrlRequest = componentURL?.url else { throw ApiError.invalidURLFormat }
-        let data = try await client.get(url: breedsUrlRequest)
-        guard let dogBreeds = try? JSONDecoder().decode([DogBreed].self, from: data) else {
+        let dogBreeds: [DogBreed] = try await request(componentURL: componentURL)
+        return dogBreeds.map{ $0.map() }
+    }
+    
+    private func request<T: Decodable>(componentURL: URLComponents?) async throws -> T {
+        
+        guard let url = componentURL?.url else { throw ApiError.invalidURLFormat }
+        let data = try await client.get(url: url)
+        guard let decoded = try? JSONDecoder().decode(T.self, from: data) else {
             throw ApiError.decodeError
         }
-        return dogBreeds.map{ $0.map() }
+        return decoded
     }
 }
 
-extension DogBreed {
+private extension DogBreed {
     
     func map() -> CuteDog {
         .init(id: String(self.id),
               breedName: self.name,
               breedGroup: self.group ?? "",
-              imageURL: URL(string: self.image.url),
+              imageURL: URL(string: self.image?.url ?? ""),
               origin: self.origin ?? "Unknown",
               breedTemperament: self.temperament ?? "")
     }
 }
 
-// MARK: ImageLoader
+// MARK: ImageLoaderInteractor
 
 extension TheDogAPIInteractor: ImageLoaderInteractor {
     
     func fetchImage(imageURL: URL) async throws -> Data? {
         try await client.get(url: imageURL)
+    }
+}
+
+// MARK: SeachDogBreedsInteractor
+
+extension TheDogAPIInteractor: SeachDogBreedsInteractor {
+
+
+    func searchCuteDogs(name: String) async throws -> [CuteDog] {
+        
+        var componentURL = URLComponents(url: baseURL.appendingPathComponent("v1/breeds"),
+                                         resolvingAgainstBaseURL: true)
+        
+        componentURL?.queryItems = [URLQueryItem(name: "q", value: name)]
+        
+        let dogBreeds: [DogBreed] = try await request(componentURL: componentURL)
+        return dogBreeds.map{ $0.map() }
     }
 }

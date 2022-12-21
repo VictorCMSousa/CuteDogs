@@ -16,7 +16,7 @@ struct DogBreed: Codable {
     let lifeSpan: String
     let temperament, origin: String?
     let referenceImageID: String
-    let image: DogImage
+    let image: DogImage?
     let description, history: String?
 
     enum CodingKeys: String, CodingKey {
