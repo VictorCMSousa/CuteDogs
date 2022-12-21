@@ -39,22 +39,17 @@ final class CuteDogsListViewController: UIViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, CuteDogsCellConfiguration>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, CuteDogsCellConfiguration>
     
-    private let listCellId: String = "listCellId"
-    private let gridCellId: String = "gridCellId"
-    
     private lazy var dataSource: DataSource = {
         .init(collectionView: collectionView) { [weak self] (collectionView, indexPath, config) in
             guard let self else { return UICollectionViewCell() }
             if self.isListView {
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.listCellId,
-                                                                    for: indexPath) as? CuteDogsListCellView else {
+                guard let cell = collectionView.dequeueReusableCell(CuteDogsListCellView.self, indexPath: indexPath) else {
                     return UICollectionViewCell()
                 }
                 cell.setup(config: config)
                 return cell
             } else {
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.gridCellId,
-                                                                    for: indexPath) as? CuteDogsGridCellView else {
+                guard let cell = collectionView.dequeueReusableCell(CuteDogsGridCellView.self, indexPath: indexPath) else {
                     return UICollectionViewCell()
                 }
                 cell.setup(config: config)
@@ -103,8 +98,8 @@ final class CuteDogsListViewController: UIViewController {
         
         title = "Cute Dogs"
         
-        collectionView.register(UINib(nibName:"CuteDogsListCellView", bundle: nil), forCellWithReuseIdentifier: listCellId)
-        collectionView.register(UINib(nibName:"CuteDogsGridCellView", bundle: nil), forCellWithReuseIdentifier: gridCellId)
+        collectionView.register(CuteDogsListCellView.self)
+        collectionView.register(CuteDogsGridCellView.self)
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         collectionView.collectionViewLayout = listCVLayout

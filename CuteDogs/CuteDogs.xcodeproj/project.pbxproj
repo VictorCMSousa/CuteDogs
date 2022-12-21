@@ -11,6 +11,10 @@
 		F50984FF2952FF8800DBB4F2 /* CuteDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50984FE2952FF8800DBB4F2 /* CuteDog.swift */; };
 		F5098501295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098500295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift */; };
 		F5098503295308E100DBB4F2 /* SeachDogBreedsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098502295308E100DBB4F2 /* SeachDogBreedsInteractorTests.swift */; };
+		F5098506295309BC00DBB4F2 /* SearchCuteDogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5098505295309BC00DBB4F2 /* SearchCuteDogViewController.xib */; };
+		F5098508295309CD00DBB4F2 /* SeachCuteDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098507295309CD00DBB4F2 /* SeachCuteDogViewController.swift */; };
+		F509850B29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509850A29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift */; };
+		F509850D29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509850C29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift */; };
 		F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */; };
 		F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F5A294C84E000FA828E /* AppDelegate.swift */; };
 		F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F5C294C84E000FA828E /* SceneDelegate.swift */; };
@@ -79,6 +83,10 @@
 		F50984FE2952FF8800DBB4F2 /* CuteDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDog.swift; sourceTree = "<group>"; };
 		F5098500295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractorTests.swift; sourceTree = "<group>"; };
 		F5098502295308E100DBB4F2 /* SeachDogBreedsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachDogBreedsInteractorTests.swift; sourceTree = "<group>"; };
+		F5098505295309BC00DBB4F2 /* SearchCuteDogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCuteDogViewController.xib; sourceTree = "<group>"; };
+		F5098507295309CD00DBB4F2 /* SeachCuteDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachCuteDogViewController.swift; sourceTree = "<group>"; };
+		F509850A29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+RegisterDequeue.swift"; sourceTree = "<group>"; };
+		F509850C29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterDequeue.swift"; sourceTree = "<group>"; };
 		F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListPresenter.swift; sourceTree = "<group>"; };
 		F5587F57294C84E000FA828E /* CuteDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuteDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5587F5A294C84E000FA828E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +163,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F50985042953099700DBB4F2 /* CuteDogSeachView */ = {
+			isa = PBXGroup;
+			children = (
+				F5098505295309BC00DBB4F2 /* SearchCuteDogViewController.xib */,
+				F5098507295309CD00DBB4F2 /* SeachCuteDogViewController.swift */,
+			);
+			path = CuteDogSeachView;
+			sourceTree = "<group>";
+		};
+		F509850929530A7A00DBB4F2 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F509850A29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift */,
+				F509850C29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		F53EC638294CD89E0044DE75 /* CuteDogsListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,8 +219,10 @@
 			children = (
 				F5587F68294C84E100FA828E /* Info.plist */,
 				F5587FA2294CCB9900FA828E /* Main */,
+				F50985042953099700DBB4F2 /* CuteDogSeachView */,
 				F5897B0C2950AEF00012143B /* CuteDogDetailView */,
 				F53EC638294CD89E0044DE75 /* CuteDogsListView */,
+				F509850929530A7A00DBB4F2 /* Helper */,
 				F5587F65294C84E100FA828E /* LaunchScreen.storyboard */,
 				F5D02B8E2951B5FF00582327 /* ImageStore */,
 				F5587F90294C91CB00FA828E /* Interfaces */,
@@ -494,6 +522,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5098506295309BC00DBB4F2 /* SearchCuteDogViewController.xib in Resources */,
 				F5587FA4294CCBFF00FA828E /* CuteDogsListViewController.xib in Resources */,
 				F5897B102950AF340012143B /* CuteDogDetailViewController.xib in Resources */,
 				F5587F67294C84E100FA828E /* LaunchScreen.storyboard in Resources */,
@@ -526,6 +555,7 @@
 			files = (
 				F50984FF2952FF8800DBB4F2 /* CuteDog.swift in Sources */,
 				F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */,
+				F5098508295309CD00DBB4F2 /* SeachCuteDogViewController.swift in Sources */,
 				F50984FC2952FF1C00DBB4F2 /* SeachDogBreedsInteractor.swift in Sources */,
 				F5897B0E2950AF100012143B /* CuteDogDetailViewController.swift in Sources */,
 				F5587F5F294C84E000FA828E /* CuteDogsListViewController.swift in Sources */,
@@ -537,8 +567,10 @@
 				F5897AFB294F42B40012143B /* ImageLoaderAdapter.swift in Sources */,
 				F5897AF9294F3D5C0012143B /* ImageCacheLoaderInteractor.swift in Sources */,
 				F5587F8F294C8A4C00FA828E /* DogBreed.swift in Sources */,
+				F509850D29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift in Sources */,
 				F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */,
 				F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */,
+				F509850B29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift in Sources */,
 				F5D02B7D2950B33900582327 /* CuteDogDetailPresenter.swift in Sources */,
 				F5B3A91C294DF4EE00C989F4 /* CuteDogsGridCellView.swift in Sources */,
 				F5D02B7B2950B17900582327 /* CuteDogsListRouter.swift in Sources */,
