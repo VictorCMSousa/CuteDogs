@@ -69,7 +69,7 @@ extension TheDogAPIInteractor: ImageLoaderInteractor {
 
 // MARK: SeachDogBreedsInteractor
 
-extension TheDogAPIInteractor: SeachDogBreedsInteractor {
+extension TheDogAPIInteractor: SearchDogBreedsInteractor {
 
 
     func searchCuteDogs(name: String) async throws -> [CuteDog] {

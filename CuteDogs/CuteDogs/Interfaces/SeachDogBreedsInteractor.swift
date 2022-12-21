@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SeachDogBreedsInteractor {
+protocol SearchDogBreedsInteractor {
     
     func searchCuteDogs(name: String) async throws -> [CuteDog]
 }

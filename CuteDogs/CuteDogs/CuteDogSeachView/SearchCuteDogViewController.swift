@@ -10,7 +10,7 @@ import UIKit
 
 protocol SearchResultViewControllerPresenter {
     
-    func search(breedName: String, completion: @escaping (Result<[SeachCuteDogRowViewConfiguration], ApiError>) -> ())
+    func search(breedName: String, completion: @escaping (Result<[SearchCuteDogRowViewConfiguration], ApiError>) -> ())
     func wantToShowDetails(id: String)
 }
 
@@ -19,7 +19,7 @@ final class SearchCuteDogViewController: UIViewController, UISearchResultsUpdati
     @IBOutlet weak var tableView: UITableView!
     
     private let presenter: SearchResultViewControllerPresenter
-    private var rowsConfigs = [SeachCuteDogRowViewConfiguration]()
+    private var rowsConfigs = [SearchCuteDogRowViewConfiguration]()
     private let searchController: UISearchController
     private let waitingToRequest: Double
     

@@ -10,9 +10,9 @@
 final class SearchResultViewControllerPresenterSpy: SearchResultViewControllerPresenter {
     
     var breedNames = [String]()
-    var searchBreedsCompletion = [(Result<[SeachCuteDogRowViewConfiguration], ApiError>) -> ()]()
+    var searchBreedsCompletion = [(Result<[SearchCuteDogRowViewConfiguration], ApiError>) -> ()]()
     
-    func search(breedName: String, completion: @escaping (Result<[SeachCuteDogRowViewConfiguration], ApiError>) -> ()) {
+    func search(breedName: String, completion: @escaping (Result<[SearchCuteDogRowViewConfiguration], ApiError>) -> ()) {
         breedNames.append(breedName)
         searchBreedsCompletion.append(completion)
     }

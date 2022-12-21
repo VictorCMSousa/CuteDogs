@@ -33,7 +33,7 @@ final class CuteDogsListPresenterTests: XCTestCase {
         })
 
 
-        wait(for: [exp], timeout: 0.1)
+        wait(for: [exp], timeout: 0.2)
         XCTAssertEqual(capturedPageSize, pageSize)
         XCTAssertEqual(capturedPageNumber, pageNumber)
     }

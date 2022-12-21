@@ -7,9 +7,9 @@
 
 @testable import CuteDogs
 
-extension SeachCuteDogRowViewConfiguration {
+extension SearchCuteDogRowViewConfiguration {
     
-    static let any = SeachCuteDogRowViewConfiguration(id: "123",
+    static let any = SearchCuteDogRowViewConfiguration(id: "123",
                                                       name: "Any",
                                                       group: "group",
                                                       origin: "origin")

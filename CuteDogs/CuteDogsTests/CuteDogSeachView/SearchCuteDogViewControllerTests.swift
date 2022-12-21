@@ -35,7 +35,7 @@ final class SearchCuteDogViewControllerTests: XCTestCase {
         let searchController = UISearchController(searchResultsController: nil)
         let sut = makeSUT(presenter: presenter, searchController: searchController)
         searchController.searchBar.text = "Bull"
-        let config = SeachCuteDogRowViewConfiguration.any
+        let config = SearchCuteDogRowViewConfiguration.any
         search(searchController: searchController, sut: sut)
 
         loadView(with: [config],
@@ -55,7 +55,7 @@ final class SearchCuteDogViewControllerTests: XCTestCase {
         let searchController = UISearchController(searchResultsController: nil)
         let sut = makeSUT(presenter: presenter, searchController: searchController)
         searchController.searchBar.text = "Bull"
-        let config = SeachCuteDogRowViewConfiguration.any
+        let config = SearchCuteDogRowViewConfiguration.any
         search(searchController: searchController, sut: sut)
 
         loadView(with: [config],
@@ -92,7 +92,7 @@ final class SearchCuteDogViewControllerTests: XCTestCase {
         wait(for: [exp], timeout: 0.2)
     }
         
-    func loadView(with config: [SeachCuteDogRowViewConfiguration],
+    func loadView(with config: [SearchCuteDogRowViewConfiguration],
                   presenter: SearchResultViewControllerPresenterSpy,
                   sut: SearchCuteDogViewController) {
         

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class AppFactory {
     
@@ -16,10 +17,17 @@ final class AppFactory {
                                                                   cacheLoader: ImageCacheLoader(baseDirectory: .cachesDirectory))
     private static let searchBreedsInteractor = TheDogAPIInteractor(client: networkClient)
     
+    private static let coreData = try! CoreDataCuteDogStore(storeURL: NSPersistentContainer
+        .defaultDirectoryURL()
+        .appendingPathComponent("CuteDogs.sqlite"))
+    private static let storageIntactor = LocalCuteDogInteractor(store: coreData)
+    private static let cacheAdapterDogBreedInteractor = CuteDogLoaderCacheInteractorAdapter(remoteLoader: dogBreedsInteractor,
+                                                                                            storeInteractor: storageIntactor)
+    
     static func makeCuteDogsListView(navigationController: UINavigationController) -> CuteDogsListViewController {
         
         let router = CuteDogsListRouter(navigationController: navigationController)
-        let presenter = CuteDogsListPresenter(dogInteractor: dogBreedsInteractor,
+        let presenter = CuteDogsListPresenter(dogInteractor: cacheAdapterDogBreedInteractor,
                                               imageLoaderInteractor: imageLoaderInteractor,
                                               router: router,
                                               pageSize: 20,

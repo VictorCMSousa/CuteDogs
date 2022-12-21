@@ -1,5 +1,5 @@
 //
-//  SeachDogBreedsInteractorTests.swift
+//  SearchDogBreedsInteractorTests.swift
 //  CuteDogsTests
 //
 //  Created by Victor Sousa on 21/12/2022.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import CuteDogs
 
-final class SeachDogBreedsInteractorTests: XCTestCase {
+final class SearchDogBreedsInteractorTests: XCTestCase {
 
     func test_searchCuteDogs_validURL() async throws {
         
@@ -78,7 +78,7 @@ final class SeachDogBreedsInteractorTests: XCTestCase {
     
     func makeSUT(client: HTTPClient = HTTPClientSpy(),
                  file: StaticString = #filePath,
-                 line: UInt = #line) -> SeachDogBreedsInteractor {
+                 line: UInt = #line) -> SearchDogBreedsInteractor {
         
         let sut = TheDogAPIInteractor(client: client)
         trackForMemoryLeaks(sut, file: file, line: line)

@@ -14,22 +14,22 @@ protocol SearchCuteDogsResultPresenterRouter {
 
 final class SearchCuteDogsResultPresenter: SearchResultViewControllerPresenter {
     
-    private let searchInteractor: SeachDogBreedsInteractor
+    private let searchInteractor: SearchDogBreedsInteractor
     private let router: SearchCuteDogsResultPresenterRouter
     private var cuteDogs = [CuteDog]()
     
-    init(searchInteractor: SeachDogBreedsInteractor, router: SearchCuteDogsResultPresenterRouter) {
+    init(searchInteractor: SearchDogBreedsInteractor, router: SearchCuteDogsResultPresenterRouter) {
         self.searchInteractor = searchInteractor
         self.router = router
     }
     
-    func search(breedName: String, completion: @escaping (Result<[SeachCuteDogRowViewConfiguration], ApiError>) -> ()) {
+    func search(breedName: String, completion: @escaping (Result<[SearchCuteDogRowViewConfiguration], ApiError>) -> ()) {
         
         Task {
             do {
                 let cuteDogsBreeds = try await searchInteractor.searchCuteDogs(name: breedName)
                 cuteDogs = cuteDogsBreeds
-                let configs: [SeachCuteDogRowViewConfiguration] = cuteDogsBreeds.map(map)
+                let configs: [SearchCuteDogRowViewConfiguration] = cuteDogsBreeds.map(map)
                 DispatchQueue.main.async {
                     completion(.success(configs))
                 }
@@ -41,7 +41,7 @@ final class SearchCuteDogsResultPresenter: SearchResultViewControllerPresenter {
         }
     }
     
-    private func map(cuteDog: CuteDog) -> SeachCuteDogRowViewConfiguration {
+    private func map(cuteDog: CuteDog) -> SearchCuteDogRowViewConfiguration {
         .init(id: cuteDog.id, name: cuteDog.breedName, group: cuteDog.breedGroup, origin: cuteDog.origin)
     }
     

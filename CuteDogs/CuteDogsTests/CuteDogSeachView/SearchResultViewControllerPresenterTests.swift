@@ -12,7 +12,7 @@ final class SearchResultViewControllerPresenterTests: XCTestCase {
     
     func test_search_askForBreeds() {
 
-        let searchInteractor = SeachDogBreedsInteractorSpy()
+        let searchInteractor = SearchDogBreedsInteractorSpy()
         let sut = makeSUT(searchInteractor: searchInteractor)
         let breedName = "Bull"
         let exp = expectation(description: "waiting completion")
@@ -34,12 +34,12 @@ final class SearchResultViewControllerPresenterTests: XCTestCase {
 
     func test_search_completionWithDogs() {
 
-        let searchInteractor = SeachDogBreedsInteractorSpy()
+        let searchInteractor = SearchDogBreedsInteractorSpy()
         let sut = makeSUT(searchInteractor: searchInteractor)
         let exp = expectation(description: "waiting completion")
         let cuteDog = CuteDog.anyDogBreed
 
-        var capturedResult: Result<[SeachCuteDogRowViewConfiguration], ApiError>? = nil
+        var capturedResult: Result<[SearchCuteDogRowViewConfiguration], ApiError>? = nil
         searchInteractor.searchCuteDogsAction = { _ in
             return [cuteDog]
         }
@@ -64,10 +64,10 @@ final class SearchResultViewControllerPresenterTests: XCTestCase {
 
     func test_search_completionWithError() {
 
-        let searchInteractor = SeachDogBreedsInteractorSpy()
+        let searchInteractor = SearchDogBreedsInteractorSpy()
         let sut = makeSUT(searchInteractor: searchInteractor)
         let exp = expectation(description: "waiting completion")
-        var capturedResult: Result<[SeachCuteDogRowViewConfiguration], ApiError>? = nil
+        var capturedResult: Result<[SearchCuteDogRowViewConfiguration], ApiError>? = nil
 
         searchInteractor.searchCuteDogsAction = { _ in
             throw ApiError.apiError
@@ -90,7 +90,7 @@ final class SearchResultViewControllerPresenterTests: XCTestCase {
 
     func test_wantToShowDetails_askRouterToShow() {
         
-        let searchInteractor = SeachDogBreedsInteractorSpy()
+        let searchInteractor = SearchDogBreedsInteractorSpy()
         let router = SearchCuteDogsResultPresenterRouterSpy()
         let sut = makeSUT(searchInteractor: searchInteractor,
                           router: router)
@@ -111,7 +111,7 @@ final class SearchResultViewControllerPresenterTests: XCTestCase {
 
     }
     
-    func makeSUT(searchInteractor: SeachDogBreedsInteractor = SeachDogBreedsInteractorSpy(),
+    func makeSUT(searchInteractor: SearchDogBreedsInteractor = SearchDogBreedsInteractorSpy(),
                  router: SearchCuteDogsResultPresenterRouter = SearchCuteDogsResultPresenterRouterSpy(),
                  file: StaticString = #filePath,
                  line: UInt = #line) -> SearchResultViewControllerPresenter {

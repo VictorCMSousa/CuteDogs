@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SeachCuteDogRowViewConfiguration: Equatable {
+struct SearchCuteDogRowViewConfiguration: Equatable {
     
     let id: String
     let name: String
@@ -23,7 +23,7 @@ final class SearchCuteDogRowView: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var originLabel: UILabel!
     
-    func setup(config: SeachCuteDogRowViewConfiguration) {
+    func setup(config: SearchCuteDogRowViewConfiguration) {
         
         nameLabel.text = config.name
         categoryLabel.text = config.group
