@@ -18,6 +18,8 @@ struct SeachCuteDogRowViewConfiguration: Equatable {
 final class SearchCuteDogRowView: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var categoryStack: UIStackView!
+    @IBOutlet weak var originStack: UIStackView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var originLabel: UILabel!
     
@@ -25,6 +27,8 @@ final class SearchCuteDogRowView: UITableViewCell {
         
         nameLabel.text = config.name
         categoryLabel.text = config.group
+        categoryStack.isHidden = config.group.isEmpty
         originLabel.text = config.origin
+        originStack.isHidden = config.origin.isEmpty
     }
 }

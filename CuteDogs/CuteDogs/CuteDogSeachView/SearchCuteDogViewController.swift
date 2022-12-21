@@ -55,7 +55,7 @@ final class SearchCuteDogViewController: UIViewController, UISearchResultsUpdati
         searchController.obscuresBackgroundDuringPresentation = false
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
             .attributedPlaceholder = NSAttributedString(string: "Search",
-                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         searchController.searchBar.barStyle = UIBarStyle.default
         UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = .black

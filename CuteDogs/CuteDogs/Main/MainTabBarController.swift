@@ -22,6 +22,19 @@ final class MainTabBarController: UITabBarController {
         let searchNavigationController = UINavigationController()
         let searchViewController = makeSearchView!(searchNavigationController)
         searchNavigationController.setViewControllers([searchViewController], animated: false)
+        
+        let appearance = UINavigationBarAppearance()
+        let img = UIImage()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemMint
+        appearance.shadowImage = img
+        appearance.shadowColor = .clear
+        
+        listNavigationController.navigationBar.standardAppearance = appearance
+        listNavigationController.navigationBar.scrollEdgeAppearance = appearance
+        
+        searchNavigationController.navigationBar.standardAppearance = appearance
+        searchNavigationController.navigationBar.scrollEdgeAppearance = appearance
 
         viewControllers = [listNavigationController, searchNavigationController]
         

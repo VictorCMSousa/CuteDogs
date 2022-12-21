@@ -76,8 +76,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="categoryLabel" destination="1dC-hj-NvR" id="3Kf-1X-xi9"/>
+                <outlet property="categoryStack" destination="Xn8-9d-M23" id="rY0-bu-vvx"/>
                 <outlet property="nameLabel" destination="tvF-ou-Ubw" id="J48-eG-DJe"/>
                 <outlet property="originLabel" destination="ViH-Yc-UG6" id="6Ym-Gu-5Gr"/>
+                <outlet property="originStack" destination="5xv-qI-udK" id="a9n-i3-5pI"/>
             </connections>
             <point key="canvasLocation" x="136.64122137404578" y="248.94366197183101"/>
         </view>

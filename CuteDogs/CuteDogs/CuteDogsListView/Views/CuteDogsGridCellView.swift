@@ -24,6 +24,6 @@ final class CuteDogsGridCellView: UICollectionViewCell, CellImageResource {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        dogImageView.image = UIImage(named: "cute-placehold")
+        dogImageView.image = UIImage()
     }
 }

@@ -10,18 +10,6 @@ import XCTest
 
 final class CuteDogDetailViewControllerTests: XCTestCase {
     
-    func test_viewLoad_breedNameAsTitle() {
-        
-        let presenter = CuteDogDetailViewControllerPresenterSpy()
-        let sut = makeSUT(presenter: presenter)
-        presenter.makerViewConfig = {
-            .any
-        }
-
-        sut.view.layoutIfNeeded()
-        
-        XCTAssertEqual(sut.title, CuteDogDetailViewConfiguration.any.name)
-    }
     
     func test_viewLoad_updateLabels() {
         
@@ -34,6 +22,7 @@ final class CuteDogDetailViewControllerTests: XCTestCase {
 
         sut.view.layoutIfNeeded()
         
+        XCTAssertEqual(sut.breedNameLabel.text, config.name)
         XCTAssertEqual(sut.breedCategoryLabel.text, config.category)
         XCTAssertEqual(sut.breedOriginLabel.text, config.origin)
         XCTAssertEqual(sut.breedTemperamentLabel.text, config.temperament)

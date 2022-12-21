@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CuteDogDetailViewController" customModule="CuteDogs" customModuleProvider="target">
             <connections>
                 <outlet property="breedCategoryLabel" destination="Uvb-lY-y2P" id="zjq-Oq-AO5"/>
+                <outlet property="breedNameLabel" destination="c3b-p3-UtT" id="O3x-7e-qZN"/>
                 <outlet property="breedOriginLabel" destination="5kp-gT-jsM" id="zCD-iI-EAf"/>
                 <outlet property="breedTemperamentLabel" destination="nr2-ka-fDn" id="DjG-4L-vlj"/>
                 <outlet property="categoryStackView" destination="ieK-dG-lhx" id="CnA-yx-rJr"/>
@@ -27,8 +28,14 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0aP-q0-z6P">
                     <rect key="frame" x="24" y="59" width="345" height="759"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3b-p3-UtT">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="28.666666666666668"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ieK-dG-lhx">
-                            <rect key="frame" x="0.0" y="0.0" width="345" height="44.666666666666664"/>
+                            <rect key="frame" x="0.0" y="40.666666666666671" width="345" height="44.666666666666671"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPE-VZ-p6D">
                                     <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
@@ -45,7 +52,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-wt-jYu">
-                            <rect key="frame" x="0.0" y="56.666666666666671" width="345" height="44.666666666666671"/>
+                            <rect key="frame" x="0.0" y="97.333333333333343" width="345" height="44.666666666666657"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCF-NY-csb">
                                     <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
@@ -54,7 +61,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kp-gT-jsM">
-                                    <rect key="frame" x="0.0" y="24.333333333333329" width="345" height="20.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="24.333333333333314" width="345" height="20.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -62,7 +69,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lzx-Xi-ijP">
-                            <rect key="frame" x="0.0" y="113.33333333333336" width="345" height="44.666666666666671"/>
+                            <rect key="frame" x="0.0" y="154" width="345" height="44.666666666666657"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperament:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDD-WO-ktf">
                                     <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
@@ -71,7 +78,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr2-ka-fDn">
-                                    <rect key="frame" x="0.0" y="24.333333333333314" width="345" height="20.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="24.333333333333343" width="345" height="20.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -79,7 +86,7 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVb-TF-FHd">
-                            <rect key="frame" x="0.0" y="170" width="345" height="589"/>
+                            <rect key="frame" x="0.0" y="210.66666666666669" width="345" height="548.33333333333326"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                     </subviews>

@@ -22,6 +22,7 @@ struct CuteDogDetailViewConfiguration {
 
 final class CuteDogDetailViewController: UIViewController {
     
+    @IBOutlet weak var breedNameLabel: UILabel!
     @IBOutlet weak var categoryStackView: UIStackView!
     @IBOutlet weak var breedCategoryLabel: UILabel!
     
@@ -46,9 +47,9 @@ final class CuteDogDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.prefersLargeTitles = true
         let config = presenter.makeViewConfig()
-        title = config.name
+        
+        breedNameLabel.text = config.name
         
         categoryStackView.isHidden = config.category.isEmpty
         breedCategoryLabel.text = config.category
@@ -59,10 +60,5 @@ final class CuteDogDetailViewController: UIViewController {
         temperamentStackView.isHidden = config.temperament.isEmpty
         breedTemperamentLabel.text = config.temperament
         
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
