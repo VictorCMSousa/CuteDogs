@@ -22,7 +22,7 @@ final class CuteDogsListPresenter {
     private var pageNumber: Int
     private var fetchedAll: Bool
     private var imagesTasks: [URL: Task<UIImage?, Never>] = [:]
-    private var fetchedDogs: Set<CuteDog> = .init([])
+    private var fetchedDogs: [CuteDog] = []
     
     init(dogInteractor: DogBreedsInteractor,
          imageLoaderInteractor: ImageLoaderInteractor,
@@ -53,7 +53,7 @@ extension CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
                 let cuteDogsBreeds = try await dogInteractor.fetchCuteDogs(size: pageSize, pageNumber: pageNumber)
                 fetchedAll = cuteDogsBreeds.count < pageSize
                 pageNumber += !fetchedAll ? 1 : 0
-                fetchedDogs.formUnion(cuteDogsBreeds)
+                fetchedDogs.append(contentsOf: cuteDogsBreeds)
                 let configs: [CuteDogsCellConfiguration] = cuteDogsBreeds.map(map)
                 DispatchQueue.main.async {
                     completion(.success(configs))

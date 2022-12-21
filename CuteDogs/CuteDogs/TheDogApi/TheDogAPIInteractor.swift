@@ -38,6 +38,10 @@ final class TheDogAPIInteractor: DogBreedsInteractor {
         
         guard let url = componentURL?.url else { throw ApiError.invalidURLFormat }
         let data = try await client.get(url: url)
+        do {
+            let _ = try JSONDecoder().decode(T.self, from: data)
+        } catch { print(error)}
+        
         guard let decoded = try? JSONDecoder().decode(T.self, from: data) else {
             throw ApiError.decodeError
         }
@@ -73,11 +77,10 @@ extension TheDogAPIInteractor: SeachDogBreedsInteractor {
 
     func searchCuteDogs(name: String) async throws -> [CuteDog] {
         
-        var componentURL = URLComponents(url: baseURL.appendingPathComponent("v1/breeds"),
+        var componentURL = URLComponents(url: baseURL.appendingPathComponent("v1/breeds/search"),
                                          resolvingAgainstBaseURL: true)
         
         componentURL?.queryItems = [URLQueryItem(name: "q", value: name)]
-        
         let dogBreeds: [DogBreed] = try await request(componentURL: componentURL)
         return dogBreeds.map{ $0.map() }
     }

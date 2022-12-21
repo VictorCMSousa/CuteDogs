@@ -15,7 +15,7 @@ struct DogBreed: Codable {
     let group: String?
     let lifeSpan: String
     let temperament, origin: String?
-    let referenceImageID: String
+    let referenceImageID: String?
     let image: DogImage?
     let description, history: String?
 

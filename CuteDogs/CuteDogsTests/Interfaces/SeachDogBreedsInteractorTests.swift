@@ -24,7 +24,7 @@ final class SeachDogBreedsInteractorTests: XCTestCase {
         let received = clientSpy.getURLs[0]
         XCTAssertEqual(received.scheme, "https", "scheme")
         XCTAssertEqual(received.host, "api.thedogapi.com", "host")
-        XCTAssertEqual(received.path, "/v1/breeds", "path")
+        XCTAssertEqual(received.path, "/v1/breeds/search", "path")
         XCTAssertEqual(received.query?.contains("q=\(breedName)"), true, "breeed name")
     }
 

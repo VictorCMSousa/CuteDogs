@@ -12,9 +12,11 @@
 		F5098501295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098500295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift */; };
 		F5098503295308E100DBB4F2 /* SeachDogBreedsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098502295308E100DBB4F2 /* SeachDogBreedsInteractorTests.swift */; };
 		F5098506295309BC00DBB4F2 /* SearchCuteDogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5098505295309BC00DBB4F2 /* SearchCuteDogViewController.xib */; };
-		F5098508295309CD00DBB4F2 /* SeachCuteDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098507295309CD00DBB4F2 /* SeachCuteDogViewController.swift */; };
+		F5098508295309CD00DBB4F2 /* SearchCuteDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098507295309CD00DBB4F2 /* SearchCuteDogViewController.swift */; };
 		F509850B29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509850A29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift */; };
 		F509850D29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509850C29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift */; };
+		F509851029530D8F00DBB4F2 /* SearchCuteDogRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F509850F29530D8F00DBB4F2 /* SearchCuteDogRowView.xib */; };
+		F509851229530DA900DBB4F2 /* SearchCuteDogRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509851129530DA900DBB4F2 /* SearchCuteDogRowView.swift */; };
 		F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */; };
 		F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F5A294C84E000FA828E /* AppDelegate.swift */; };
 		F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F5C294C84E000FA828E /* SceneDelegate.swift */; };
@@ -32,6 +34,8 @@
 		F5587F9E294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587F9D294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift */; };
 		F5587FA1294CC8A300FA828E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5587FA0294CC8A300FA828E /* Data.swift */; };
 		F5587FA4294CCBFF00FA828E /* CuteDogsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */; };
+		F577A4D1295314B3005C736A /* SearchCuteDogsResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4D0295314B3005C736A /* SearchCuteDogsResultPresenter.swift */; };
+		F577A4D329531910005C736A /* SearchCuteDogsResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4D229531910005C736A /* SearchCuteDogsResultRouter.swift */; };
 		F5897AF7294F3CFC0012143B /* ImageLoaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */; };
 		F5897AF9294F3D5C0012143B /* ImageCacheLoaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF8294F3D5C0012143B /* ImageCacheLoaderInteractor.swift */; };
 		F5897AFB294F42B40012143B /* ImageLoaderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */; };
@@ -84,9 +88,11 @@
 		F5098500295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractorTests.swift; sourceTree = "<group>"; };
 		F5098502295308E100DBB4F2 /* SeachDogBreedsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachDogBreedsInteractorTests.swift; sourceTree = "<group>"; };
 		F5098505295309BC00DBB4F2 /* SearchCuteDogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCuteDogViewController.xib; sourceTree = "<group>"; };
-		F5098507295309CD00DBB4F2 /* SeachCuteDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachCuteDogViewController.swift; sourceTree = "<group>"; };
+		F5098507295309CD00DBB4F2 /* SearchCuteDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCuteDogViewController.swift; sourceTree = "<group>"; };
 		F509850A29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+RegisterDequeue.swift"; sourceTree = "<group>"; };
 		F509850C29530C0900DBB4F2 /* UICollectionView+RegisterDequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterDequeue.swift"; sourceTree = "<group>"; };
+		F509850F29530D8F00DBB4F2 /* SearchCuteDogRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCuteDogRowView.xib; sourceTree = "<group>"; };
+		F509851129530DA900DBB4F2 /* SearchCuteDogRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCuteDogRowView.swift; sourceTree = "<group>"; };
 		F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogsListPresenter.swift; sourceTree = "<group>"; };
 		F5587F57294C84E000FA828E /* CuteDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuteDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5587F5A294C84E000FA828E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 		F5587F9D294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		F5587FA0294CC8A300FA828E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuteDogsListViewController.xib; sourceTree = "<group>"; };
+		F577A4D0295314B3005C736A /* SearchCuteDogsResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCuteDogsResultPresenter.swift; sourceTree = "<group>"; };
+		F577A4D229531910005C736A /* SearchCuteDogsResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCuteDogsResultRouter.swift; sourceTree = "<group>"; };
 		F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractor.swift; sourceTree = "<group>"; };
 		F5897AF8294F3D5C0012143B /* ImageCacheLoaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheLoaderInteractor.swift; sourceTree = "<group>"; };
 		F5897AFA294F42B40012143B /* ImageLoaderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderAdapter.swift; sourceTree = "<group>"; };
@@ -166,8 +174,11 @@
 		F50985042953099700DBB4F2 /* CuteDogSeachView */ = {
 			isa = PBXGroup;
 			children = (
+				F509850E29530D6400DBB4F2 /* Views */,
 				F5098505295309BC00DBB4F2 /* SearchCuteDogViewController.xib */,
-				F5098507295309CD00DBB4F2 /* SeachCuteDogViewController.swift */,
+				F5098507295309CD00DBB4F2 /* SearchCuteDogViewController.swift */,
+				F577A4D0295314B3005C736A /* SearchCuteDogsResultPresenter.swift */,
+				F577A4D229531910005C736A /* SearchCuteDogsResultRouter.swift */,
 			);
 			path = CuteDogSeachView;
 			sourceTree = "<group>";
@@ -181,10 +192,19 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		F509850E29530D6400DBB4F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F509850F29530D8F00DBB4F2 /* SearchCuteDogRowView.xib */,
+				F509851129530DA900DBB4F2 /* SearchCuteDogRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F53EC638294CD89E0044DE75 /* CuteDogsListView */ = {
 			isa = PBXGroup;
 			children = (
-				F5B3A914294DF23900C989F4 /* View */,
+				F5B3A914294DF23900C989F4 /* Views */,
 				F5587FA3294CCBFF00FA828E /* CuteDogsListViewController.xib */,
 				F5587F5E294C84E000FA828E /* CuteDogsListViewController.swift */,
 				F53EC636294CD8720044DE75 /* CuteDogsListPresenter.swift */,
@@ -371,7 +391,7 @@
 			path = CuteDogDetailView;
 			sourceTree = "<group>";
 		};
-		F5B3A914294DF23900C989F4 /* View */ = {
+		F5B3A914294DF23900C989F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				F5B3A915294DF26900C989F4 /* CuteDogsListCellView.xib */,
@@ -379,7 +399,7 @@
 				F5B3A917294DF3F000C989F4 /* CuteDogsGridCellView.xib */,
 				F5B3A91B294DF4EE00C989F4 /* CuteDogsGridCellView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F5D02B842950C70B00582327 /* CuteDogsListView */ = {
@@ -524,6 +544,7 @@
 			files = (
 				F5098506295309BC00DBB4F2 /* SearchCuteDogViewController.xib in Resources */,
 				F5587FA4294CCBFF00FA828E /* CuteDogsListViewController.xib in Resources */,
+				F509851029530D8F00DBB4F2 /* SearchCuteDogRowView.xib in Resources */,
 				F5897B102950AF340012143B /* CuteDogDetailViewController.xib in Resources */,
 				F5587F67294C84E100FA828E /* LaunchScreen.storyboard in Resources */,
 				F5B3A918294DF3F000C989F4 /* CuteDogsGridCellView.xib in Resources */,
@@ -554,8 +575,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50984FF2952FF8800DBB4F2 /* CuteDog.swift in Sources */,
+				F509851229530DA900DBB4F2 /* SearchCuteDogRowView.swift in Sources */,
 				F53EC637294CD8720044DE75 /* CuteDogsListPresenter.swift in Sources */,
-				F5098508295309CD00DBB4F2 /* SeachCuteDogViewController.swift in Sources */,
+				F577A4D329531910005C736A /* SearchCuteDogsResultRouter.swift in Sources */,
+				F5098508295309CD00DBB4F2 /* SearchCuteDogViewController.swift in Sources */,
 				F50984FC2952FF1C00DBB4F2 /* SeachDogBreedsInteractor.swift in Sources */,
 				F5897B0E2950AF100012143B /* CuteDogDetailViewController.swift in Sources */,
 				F5587F5F294C84E000FA828E /* CuteDogsListViewController.swift in Sources */,
@@ -571,6 +594,7 @@
 				F5587F5B294C84E000FA828E /* AppDelegate.swift in Sources */,
 				F5587F5D294C84E000FA828E /* SceneDelegate.swift in Sources */,
 				F509850B29530A8500DBB4F2 /* UITableView+RegisterDequeue.swift in Sources */,
+				F577A4D1295314B3005C736A /* SearchCuteDogsResultPresenter.swift in Sources */,
 				F5D02B7D2950B33900582327 /* CuteDogDetailPresenter.swift in Sources */,
 				F5B3A91C294DF4EE00C989F4 /* CuteDogsGridCellView.swift in Sources */,
 				F5D02B7B2950B17900582327 /* CuteDogsListRouter.swift in Sources */,

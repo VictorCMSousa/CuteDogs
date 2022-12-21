@@ -15,11 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let navigationController = UINavigationController()
-        let cuteDogsListViewController = AppFactory.makeCuteDogsListView(navigationController: navigationController)
-        navigationController.setViewControllers([cuteDogsListViewController], animated: false)
+        let tabBar = AppFactory.makeTabBar()
+        tabBar.makeListView = AppFactory.makeCuteDogsListView(navigationController:)
+        tabBar.makeSearchView = AppFactory.makeSearchCuteDog(navigationController:)
         
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
     }
 
