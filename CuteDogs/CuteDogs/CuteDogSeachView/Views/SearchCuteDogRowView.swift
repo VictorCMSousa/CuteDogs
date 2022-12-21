@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SeachCuteDogRowViewConfiguration {
+struct SeachCuteDogRowViewConfiguration: Equatable {
     
     let id: String
     let name: String

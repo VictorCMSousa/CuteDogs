@@ -14,19 +14,22 @@ protocol SearchResultViewControllerPresenter {
     func wantToShowDetails(id: String)
 }
 
-protocol SearchResultView: UIViewController, UISearchResultsUpdating { }
-
-final class SearchCuteDogViewController: UIViewController, SearchResultView {
+final class SearchCuteDogViewController: UIViewController, UISearchResultsUpdating {
     
     @IBOutlet weak var tableView: UITableView!
     
     private let presenter: SearchResultViewControllerPresenter
     private var rowsConfigs = [SeachCuteDogRowViewConfiguration]()
-    private let searchController = UISearchController(searchResultsController: nil)
+    private let searchController: UISearchController
+    private let waitingToRequest: Double
     
-    
-    init(presenter: SearchResultViewControllerPresenter) {
+    init(presenter: SearchResultViewControllerPresenter,
+         searchController:UISearchController = UISearchController(searchResultsController: nil),
+         waitingToRequest: Double = 0.5) {
+        
         self.presenter = presenter
+        self.searchController = searchController
+        self.waitingToRequest = waitingToRequest
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -67,7 +70,7 @@ final class SearchCuteDogViewController: UIViewController, SearchResultView {
         NSObject.cancelPreviousPerformRequests(withTarget: self,
                                                selector: #selector(filterContentForSearchText(searchController:)),
                                                object: searchController)
-        self.perform(#selector(filterContentForSearchText(searchController:)), with: searchController, afterDelay: 0.5)
+        self.perform(#selector(filterContentForSearchText(searchController:)), with: searchController, afterDelay: waitingToRequest)
     }
     
     @objc private func filterContentForSearchText(searchController: UISearchController) {

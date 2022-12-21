@@ -153,7 +153,7 @@ final class CuteDogsListPresenterTests: XCTestCase {
             })
         })
         
-        wait(for: [exp], timeout: 0.1)
+        wait(for: [exp], timeout: 0.2)
 
         switch capturedResult {
         case .success:
