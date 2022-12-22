@@ -64,7 +64,7 @@ final class CuteDogsListViewController: UIViewController, Toastable {
 
         let collectionFlowLayout = UICollectionViewFlowLayout()
         collectionFlowLayout.sectionInset = UIEdgeInsets(top: 12, left: 8, bottom: 12, right: 8)
-        collectionFlowLayout.itemSize = CGSize(width: collectionView.frame.width-32, height: 160)
+        collectionFlowLayout.itemSize = CGSize(width: collectionView.frame.width-36, height: 160)
         collectionFlowLayout.minimumInteritemSpacing = 8
         collectionFlowLayout.minimumLineSpacing = 8
         collectionFlowLayout.scrollDirection = .vertical

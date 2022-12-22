@@ -11,56 +11,43 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CuteDogsGridCellView" customModule="CuteDogs" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+            <rect key="frame" x="0.0" y="0.0" width="203" height="307"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EQG-Yi-vyN">
-                    <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cute-placehold" translatesAutoresizingMaskIntoConstraints="NO" id="l5C-td-eE6">
-                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="160" id="VMm-vz-QLG"/>
-                            </constraints>
-                        </imageView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcu-Bc-r5L">
-                            <rect key="frame" x="0.0" y="160" width="160" height="80"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDH-Sm-kuL">
-                                    <rect key="frame" x="0.0" y="4" width="160" height="20.333333333333332"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="VDH-Sm-kuL" firstAttribute="leading" secondItem="zcu-Bc-r5L" secondAttribute="leading" id="9gk-9F-R0d"/>
-                                <constraint firstAttribute="trailing" secondItem="VDH-Sm-kuL" secondAttribute="trailing" id="aay-Mb-9s9"/>
-                                <constraint firstItem="VDH-Sm-kuL" firstAttribute="top" secondItem="zcu-Bc-r5L" secondAttribute="top" constant="4" id="nHq-Po-wgg"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cute-placehold" translatesAutoresizingMaskIntoConstraints="NO" id="l5C-td-eE6" userLabel="gridImage">
+                    <rect key="frame" x="21.666666666666671" y="0.0" width="160" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="J7X-hv-ptf"/>
+                        <constraint firstAttribute="width" constant="160" id="NYY-EW-a3c"/>
+                        <constraint firstAttribute="height" constant="160" id="VMm-vz-QLG"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDH-Sm-kuL">
+                    <rect key="frame" x="0.0" y="164" width="203" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EQG-Yi-vyN" secondAttribute="trailing" id="TBc-BI-sTw"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EQG-Yi-vyN" secondAttribute="bottom" id="vXJ-TI-1XY"/>
-                <constraint firstItem="EQG-Yi-vyN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wyG-CB-BWq"/>
-                <constraint firstItem="EQG-Yi-vyN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="x28-E3-gws"/>
+                <constraint firstItem="VDH-Sm-kuL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="7Ah-TG-LnE"/>
+                <constraint firstItem="VDH-Sm-kuL" firstAttribute="top" secondItem="l5C-td-eE6" secondAttribute="bottom" constant="4" id="L9v-gw-izE"/>
+                <constraint firstItem="l5C-td-eE6" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ZGc-ez-Q7N"/>
+                <constraint firstItem="VDH-Sm-kuL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ogo-FL-fTl"/>
+                <constraint firstItem="l5C-td-eE6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rK6-9b-3pw"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="dogImageView" destination="l5C-td-eE6" id="0y7-Qa-NYu"/>
                 <outlet property="nameLabel" destination="VDH-Sm-kuL" id="McD-Ti-WW5"/>
             </connections>
-            <point key="canvasLocation" x="-90.07633587786259" y="222.18309859154931"/>
+            <point key="canvasLocation" x="-57.251908396946561" y="244.71830985915494"/>
         </view>
     </objects>
     <resources>
-        <image name="cute-placehold" width="194.5" height="243"/>
+        <image name="cute-placehold" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
