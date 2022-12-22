@@ -12,7 +12,7 @@ final class TheDogAPIInteractor: DogBreedsInteractor {
     private let baseURL = URL(string: "https://api.thedogapi.com")!
     private let client: HTTPClient
     private var apiKey: String {
-        guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String else { fatalError("API_KEY config property is requered") }
+        guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String else { fatalError("API_KEY config property is required") }
         return apiKey
     }
     
