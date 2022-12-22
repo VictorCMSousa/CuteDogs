@@ -21,8 +21,8 @@ final class AppFactory {
         .defaultDirectoryURL()
         .appendingPathComponent("CuteDogs.sqlite"))
     private static let storageIntactor = LocalCuteDogInteractor(store: coreData)
-    private static let cacheAdapterDogBreedInteractor = CuteDogLoaderCacheInteractorAdapter(remoteLoader: dogBreedsInteractor,
-                                                                                            storeInteractor: storageIntactor)
+    private static let cacheAdapterDogBreedInteractor = CuteDogLoaderCacheInteractorAdapter(remoteInteractor: dogBreedsInteractor,
+                                                                                            cacheInteractor: storageIntactor)
     
     static func makeCuteDogsListView(navigationController: UINavigationController) -> CuteDogsListViewController {
         

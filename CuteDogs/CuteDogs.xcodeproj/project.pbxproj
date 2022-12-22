@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50342BE2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50342BD2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift */; };
 		F50984FC2952FF1C00DBB4F2 /* SeachDogBreedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50984FB2952FF1C00DBB4F2 /* SeachDogBreedsInteractor.swift */; };
 		F50984FF2952FF8800DBB4F2 /* CuteDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50984FE2952FF8800DBB4F2 /* CuteDog.swift */; };
 		F5098501295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098500295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift */; };
@@ -99,6 +100,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F50342BD2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogLoaderCacheInteractorAdapterTests.swift; sourceTree = "<group>"; };
 		F50984FB2952FF1C00DBB4F2 /* SeachDogBreedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachDogBreedsInteractor.swift; sourceTree = "<group>"; };
 		F50984FE2952FF8800DBB4F2 /* CuteDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDog.swift; sourceTree = "<group>"; };
 		F5098500295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractorTests.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 			children = (
 				F577A4F72953947E005C736A /* CuteDogStoreTests.swift */,
 				F577A4F929539936005C736A /* DogBreedsCacheIntaractorTests.swift */,
+				F50342BD2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift */,
 			);
 			path = CuteDogStore;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				F5587F9E294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				F5897AFF294F819F0012143B /* CuteDogsListPresenterTests.swift in Sources */,
 				F5897B03295079C40012143B /* CuteDog.swift in Sources */,
+				F50342BE2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift in Sources */,
 				F577A4DC29533562005C736A /* SearchCuteDogsResultPresenterRouterSpy.swift in Sources */,
 				F5D02B812950C6C700582327 /* CuteDogsCellConfiguration.swift in Sources */,
 				F5D02B872950C78000582327 /* CuteDogDetailPresenterTests.swift in Sources */,
