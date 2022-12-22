@@ -32,7 +32,7 @@ final class CuteDogStoreTests: XCTestCase {
         
         switch retrievedResult {
         case .success(let cuteDogs):
-            XCTAssertEqual(cuteDogs, [.anyDogBreed])
+            XCTAssertEqual(cuteDogs?.count, 1)
         default:
             XCTFail("Expecting success")
         }

@@ -17,7 +17,7 @@ final class AppFactory {
                                                                   cacheLoader: ImageCacheLoader(baseDirectory: .cachesDirectory))
     private static let searchBreedsInteractor = TheDogAPIInteractor(client: networkClient)
     
-    private static let coreData = try! CoreDataCuteDogStore(storeURL: NSPersistentContainer
+    private static let coreData = try? CoreDataCuteDogStore(storeURL: NSPersistentContainer
         .defaultDirectoryURL()
         .appendingPathComponent("CuteDogs.sqlite"))
     private static let storageIntactor = LocalCuteDogInteractor(store: coreData)

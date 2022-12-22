@@ -15,7 +15,8 @@ protocol DogBreedsCacheIntaractor {
 final class LocalCuteDogInteractor {
     private let store: CuteDogStore
     
-    init(store: CuteDogStore) {
+    init?(store: CuteDogStore?) {
+        guard let store else { return nil }
         self.store = store
     }
 }
@@ -28,7 +29,18 @@ extension LocalCuteDogInteractor: DogBreedsCacheIntaractor {
     }
     
     func fetchCuteDogs() -> [CuteDog] {
-        let cuteDogs = try? store.retrieve()
+        let cuteDogs = try? store.retrieve()?.map { map(localCuteDog: $0) }
         return cuteDogs ?? []
     }
+    
+    private func map(localCuteDog: CuteDogStored) -> CuteDog {
+        .init(id: localCuteDog.id,
+              breedName: localCuteDog.breedName,
+              breedGroup: localCuteDog.breedGroup,
+              imageURL: URL(string: localCuteDog.imageURL ?? ""),
+              origin: localCuteDog.origin,
+              breedTemperament: localCuteDog.breedTemperament)
+        
+    }
+    
 }

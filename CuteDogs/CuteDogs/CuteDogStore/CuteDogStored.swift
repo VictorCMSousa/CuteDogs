@@ -20,9 +20,9 @@ class CuteDogStored: NSManagedObject {
 
 extension CuteDogStored {
     
-    static func loadCuteDog(in context: NSManagedObjectContext) throws -> [CuteDog]? {
+    static func loadCuteDog(in context: NSManagedObjectContext) throws -> [CuteDogStored]? {
         
-        try load(in: context)?.map({ $0.cuteDog })
+        try load(in: context)
     }
     
     private static func load(in context: NSManagedObjectContext) throws -> [CuteDogStored]? {
@@ -31,12 +31,4 @@ extension CuteDogStored {
         return try context.fetch(request)
     }
     
-    var cuteDog: CuteDog {
-        CuteDog(id: id,
-                breedName: breedName,
-                breedGroup: breedGroup,
-                imageURL: URL(string: imageURL ?? ""),
-                origin: origin,
-                breedTemperament: breedTemperament)
-    }
 }

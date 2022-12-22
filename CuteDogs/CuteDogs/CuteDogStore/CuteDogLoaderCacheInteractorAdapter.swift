@@ -8,9 +8,9 @@
 final class CuteDogLoaderCacheInteractorAdapter: DogBreedsInteractor {
     
     let remoteLoader: DogBreedsInteractor
-    let storeInteractor: DogBreedsCacheIntaractor
+    let storeInteractor: DogBreedsCacheIntaractor?
     
-    init(remoteLoader: DogBreedsInteractor, storeInteractor: DogBreedsCacheIntaractor) {
+    init(remoteLoader: DogBreedsInteractor, storeInteractor: DogBreedsCacheIntaractor?) {
         self.remoteLoader = remoteLoader
         self.storeInteractor = storeInteractor
     }
@@ -20,11 +20,11 @@ final class CuteDogLoaderCacheInteractorAdapter: DogBreedsInteractor {
         do {
             
             let cuteDogs = try await remoteLoader.fetchCuteDogs(size: size, pageNumber: pageNumber)
-            try? storeInteractor.save(cuteDogs: cuteDogs)
+            storeInteractor?.save(cuteDogs: cuteDogs)
             return cuteDogs
         } catch {
             if pageNumber > 0  { return [] }
-            return try storeInteractor.fetchCuteDogs()
+            return storeInteractor?.fetchCuteDogs() ?? []
         }
     }
 }

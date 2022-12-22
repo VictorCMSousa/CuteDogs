@@ -13,7 +13,7 @@ final class DogBreedsCacheIntaractorTests: XCTestCase {
     func test_fetchCuteDogs_returnEmptyOnEmptyCache() throws {
         
         let store = CuteDogStoreSpy()
-        let sut = makeSUT()
+        let sut = makeSUT(store: store)
         store.retrieveAction = { [] }
         
         let fetched = sut.fetchCuteDogs()
@@ -24,7 +24,7 @@ final class DogBreedsCacheIntaractorTests: XCTestCase {
     func test_fetchCuteDogs_returnEmptyCacheError() throws {
         
         let store = CuteDogStoreSpy()
-        let sut = makeSUT()
+        let sut = makeSUT(store: store)
         store.retrieveAction = { throw NSError(domain: "any", code: 0) }
             
         let fetched = sut.fetchCuteDogs()
@@ -32,11 +32,22 @@ final class DogBreedsCacheIntaractorTests: XCTestCase {
         
     }
     
+    func test_save_askStoreToSave() throws {
+        
+        let store = CuteDogStoreSpy()
+        let sut = makeSUT(store: store)
+        
+        sut.save(cuteDogs: [.anyDogBreed])
+            
+        XCTAssertEqual(store.insertedDogs, [.anyDogBreed])
+        
+    }
+    
     private func makeSUT(store: CuteDogStore = CuteDogStoreSpy(),
                          file: StaticString = #filePath,
                          line: UInt = #line) -> DogBreedsCacheIntaractor {
         
-        let sut = LocalCuteDogInteractor(store: store)
+        let sut = LocalCuteDogInteractor(store: store)!
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
@@ -44,8 +55,8 @@ final class DogBreedsCacheIntaractorTests: XCTestCase {
 
 final class CuteDogStoreSpy: CuteDogStore {
     
-    var retrieveAction: () throws -> [CuteDog]? = { return nil }
-    func retrieve() throws -> [CuteDog]? {
+    var retrieveAction: () throws -> [CuteDogStored]? = { return nil }
+    func retrieve() throws -> [CuteDogStored]? {
         try retrieveAction()
     }
     

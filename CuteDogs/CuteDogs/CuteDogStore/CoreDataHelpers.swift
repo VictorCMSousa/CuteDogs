@@ -13,7 +13,7 @@ extension NSPersistentContainer {
         let container = NSPersistentContainer(name: name, managedObjectModel: model)
         container.persistentStoreDescriptions = [description]
         
-        var loadError: Swift.Error?
+        var loadError: Error?
         container.loadPersistentStores { loadError = $1 }
         try loadError.map { throw $0 }
         

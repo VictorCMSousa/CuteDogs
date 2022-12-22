@@ -9,7 +9,7 @@ import CoreData
 
 protocol CuteDogStore {
     
-    func retrieve() throws -> [CuteDog]?
+    func retrieve() throws -> [CuteDogStored]?
     func insert(cuteDogs: [CuteDog]) throws
 }
 
@@ -61,7 +61,7 @@ final class CoreDataCuteDogStore {
 
 extension CoreDataCuteDogStore: CuteDogStore {
     
-    func retrieve() throws -> [CuteDog]? {
+    func retrieve() throws -> [CuteDogStored]? {
         try performSync { context in
             Result {
                 try CuteDogStored.loadCuteDog(in: context)
