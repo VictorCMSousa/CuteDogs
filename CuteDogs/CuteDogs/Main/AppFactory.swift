@@ -12,8 +12,8 @@ final class AppFactory {
     
     private static let appSession = URLSession(configuration: .default)
     private static let networkClient = NetworkClient(session: appSession)
-    private static let dogBreedsInteractor = TheDogAPIInteractor(client: networkClient)
-    private static let imageLoaderInteractor = ImageLoaderAdapter(imageLoader: TheDogAPIInteractor(client: networkClient),
+    private static let dogBreedsInteractor = TheDogAPIInteractor(client: networkClient, pageSize: 20, pageNumber: 0)
+    private static let imageLoaderInteractor = ImageLoaderAdapter(imageLoader: dogBreedsInteractor,
                                                                   cacheLoader: ImageCacheLoader(baseDirectory: .cachesDirectory))
     private static let searchBreedsInteractor = TheDogAPIInteractor(client: networkClient)
     
@@ -29,10 +29,7 @@ final class AppFactory {
         let router = CuteDogsListRouter(navigationController: navigationController)
         let presenter = CuteDogsListPresenter(dogInteractor: cacheAdapterDogBreedInteractor,
                                               imageLoaderInteractor: imageLoaderInteractor,
-                                              router: router,
-                                              pageSize: 20,
-                                              pageNumber: 0,
-                                              fetchedAll: false)
+                                              router: router)
         let cuteDogsViewController = CuteDogsListViewController(presenter: presenter)
         return cuteDogsViewController
     }

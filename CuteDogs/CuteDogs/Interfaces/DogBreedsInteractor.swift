@@ -9,5 +9,5 @@ import Foundation
 
 protocol DogBreedsInteractor {
     
-    func fetchCuteDogs(size: Int, pageNumber: Int) async throws -> [CuteDog]
+    func fetchMoreCuteDogs(offset: Int) async throws -> [CuteDog]
 }

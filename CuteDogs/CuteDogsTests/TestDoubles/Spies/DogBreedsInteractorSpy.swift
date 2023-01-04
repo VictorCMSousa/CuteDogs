@@ -10,9 +10,9 @@ import Foundation
 
 final class DogBreedsInteractorSpy: DogBreedsInteractor {
     
-    var fetchBreedsAction: (Int, Int) throws -> ([CuteDog]) = { _,_ in return []}
+    var fetchMoreCuteDogsAction: (Int) throws -> ([CuteDog]) = { _ in return []}
 
-    func fetchCuteDogs(size: Int, pageNumber: Int) async throws -> [CuteDog] {
-        try fetchBreedsAction(size, pageNumber)
+    func fetchMoreCuteDogs(offset: Int) async throws -> [CuteDog] {
+        try fetchMoreCuteDogsAction(offset)
     }
 }

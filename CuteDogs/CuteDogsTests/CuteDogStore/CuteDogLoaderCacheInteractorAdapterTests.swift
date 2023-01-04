@@ -14,34 +14,39 @@ final class CuteDogLoaderCacheInteractorAdapterTests: XCTestCase {
         
         let remoteInteractor = DogBreedsInteractorSpy()
         let sut = makeSUT(remoteInteractor: remoteInteractor)
-        var capturedSize = 0
-        var capturedPageNumber = 0
+        var capturedOffset = 0
         
-        remoteInteractor.fetchBreedsAction = { size, pgNumber in
-            capturedSize = size
-            capturedPageNumber = pgNumber
+        remoteInteractor.fetchMoreCuteDogsAction = { offset in
+            capturedOffset = offset
             return []
         }
         
-        let _ = try await sut.fetchCuteDogs(size: 10, pageNumber: 10)
+        let _ = try await sut.fetchMoreCuteDogs(offset: 0)
         
-        XCTAssertEqual(capturedSize, 10)
-        XCTAssertEqual(capturedPageNumber, 10)
+        XCTAssertEqual(capturedOffset, 0)
     }
     
     func test_fetchCuteDogs_returnRemoteResponse() async throws {
         
         let remoteInteractor = DogBreedsInteractorSpy()
         let cacheInteractor = DogBreedsCacheIntaractorSpy()
-        let sut = makeSUT(remoteInteractor: remoteInteractor, cacheInteractor: cacheInteractor)
+        let sut = makeSUT(remoteInteractor: remoteInteractor,
+                          cacheInteractor: cacheInteractor)
+        var cachedCount = 0
         
-        remoteInteractor.fetchBreedsAction = { _, _ in
+        remoteInteractor.fetchMoreCuteDogsAction = { _ in
             [.anyDogBreed]
         }
         
-        let feched = try await sut.fetchCuteDogs(size: 10, pageNumber: 10)
+        cacheInteractor.fetchCuteDogsAction = {
+            cachedCount += 1
+            return []
+        }
         
-        XCTAssertEqual(feched, [.anyDogBreed])
+        let fetched = try await sut.fetchMoreCuteDogs(offset: 0)
+        
+        XCTAssertEqual(fetched, [.anyDogBreed])
+        XCTAssertEqual(cachedCount, 0)
     }
     
     func test_fetchCuteDogs_saveCacheAfterRemoteSuccess() async throws {
@@ -50,11 +55,11 @@ final class CuteDogLoaderCacheInteractorAdapterTests: XCTestCase {
         let cacheInteractor = DogBreedsCacheIntaractorSpy()
         let sut = makeSUT(remoteInteractor: remoteInteractor, cacheInteractor: cacheInteractor)
         
-        remoteInteractor.fetchBreedsAction = { _, _ in
+        remoteInteractor.fetchMoreCuteDogsAction = { _ in
             [.anyDogBreed]
         }
         
-        let _ = try await sut.fetchCuteDogs(size: 10, pageNumber: 10)
+        let _ = try await sut.fetchMoreCuteDogs(offset: 0)
         
         XCTAssertEqual(cacheInteractor.savedDogs, [.anyDogBreed])
     }
@@ -65,12 +70,12 @@ final class CuteDogLoaderCacheInteractorAdapterTests: XCTestCase {
         let cacheInteractor = DogBreedsCacheIntaractorSpy()
         let sut = makeSUT(remoteInteractor: remoteInteractor, cacheInteractor: cacheInteractor)
         
-        remoteInteractor.fetchBreedsAction = { _, _ in
+        remoteInteractor.fetchMoreCuteDogsAction = { _ in
             throw ApiError.apiError
         }
         
         cacheInteractor.fetchCuteDogsAction = { [.anyDogBreed] }
-        let fetched = try await sut.fetchCuteDogs(size: 10, pageNumber: 0)
+        let fetched = try await sut.fetchMoreCuteDogs(offset: 0)
         
         XCTAssertEqual(cacheInteractor.savedDogs, [])
         XCTAssertEqual(fetched, [.anyDogBreed])
@@ -82,12 +87,12 @@ final class CuteDogLoaderCacheInteractorAdapterTests: XCTestCase {
         let cacheInteractor = DogBreedsCacheIntaractorSpy()
         let sut = makeSUT(remoteInteractor: remoteInteractor, cacheInteractor: cacheInteractor)
         
-        remoteInteractor.fetchBreedsAction = { _, _ in
+        remoteInteractor.fetchMoreCuteDogsAction = { _ in
             throw ApiError.apiError
         }
         
         cacheInteractor.fetchCuteDogsAction = { [.anyDogBreed] }
-        let fetched = try await sut.fetchCuteDogs(size: 10, pageNumber: 10)
+        let fetched = try await sut.fetchMoreCuteDogs(offset: 20)
         
         XCTAssertEqual(cacheInteractor.savedDogs, [])
         XCTAssertEqual(fetched, [])

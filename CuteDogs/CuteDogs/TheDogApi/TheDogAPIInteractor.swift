@@ -9,6 +9,7 @@ import Foundation
 
 final class TheDogAPIInteractor: DogBreedsInteractor {
     
+    
     private let baseURL = URL(string: "https://api.thedogapi.com")!
     private let client: HTTPClient
     private var apiKey: String {
@@ -16,12 +17,34 @@ final class TheDogAPIInteractor: DogBreedsInteractor {
         return apiKey
     }
     
-    init(client: HTTPClient) {
+    private let pageSize: Int
+    private var pageNumber: Int
+    private var fetchedAll: Bool = false
+    
+    init(client: HTTPClient,
+         pageSize: Int = 20,
+         pageNumber: Int = 0) {
         
         self.client = client
+        self.pageSize = pageSize
+        self.pageNumber = pageNumber
     }
     
-    func fetchCuteDogs(size: Int, pageNumber: Int) async throws -> [CuteDog] {
+    func fetchMoreCuteDogs(offset: Int) async throws -> [CuteDog] {
+        
+        if offset > pageSize * pageNumber {
+            pageNumber = offset / pageSize
+        }
+        guard !fetchedAll else {
+            return []
+        }
+        let cuteDogs = try await fetchCuteDogs(size: pageSize, pageNumber: pageNumber)
+        fetchedAll = cuteDogs.count < pageSize
+        pageNumber += !fetchedAll ? 1 : 0
+        return cuteDogs
+    }
+    
+    private func fetchCuteDogs(size: Int, pageNumber: Int) async throws -> [CuteDog] {
         
         var componentURL = URLComponents(url: baseURL.appendingPathComponent("v1/breeds"),
                                          resolvingAgainstBaseURL: true)

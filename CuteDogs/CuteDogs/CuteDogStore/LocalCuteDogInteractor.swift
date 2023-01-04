@@ -23,7 +23,6 @@ final class LocalCuteDogInteractor {
 
 extension LocalCuteDogInteractor: DogBreedsCacheIntaractor {
     
-    
     func save(cuteDogs: [CuteDog]) {
         try? store.insert(cuteDogs: cuteDogs)
     }

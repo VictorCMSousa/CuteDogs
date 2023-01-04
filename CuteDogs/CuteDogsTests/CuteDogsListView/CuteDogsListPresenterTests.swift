@@ -13,18 +13,12 @@ final class CuteDogsListPresenterTests: XCTestCase {
     func test_loadMoreDogsBreed_askForBreeds() {
 
         let dogInteractor = DogBreedsInteractorSpy()
-        let pageSize = 200
-        let pageNumber = 10
-        let sut = makeSUT(dogInteractor: dogInteractor,
-                          pageSize: pageSize,
-                          pageNumber: pageNumber)
+        let sut = makeSUT(dogInteractor: dogInteractor)
         let exp = expectation(description: "waiting completion")
-        var capturedPageSize = 0
-        var capturedPageNumber = 0
+        var capturedOffset = 0
 
-        dogInteractor.fetchBreedsAction = { pageSize, pageNumber in
-            capturedPageSize = pageSize
-            capturedPageNumber = pageNumber
+        dogInteractor.fetchMoreCuteDogsAction = { offset in
+            capturedOffset = offset
             return []
         }
 
@@ -34,8 +28,7 @@ final class CuteDogsListPresenterTests: XCTestCase {
 
 
         wait(for: [exp], timeout: 0.2)
-        XCTAssertEqual(capturedPageSize, pageSize)
-        XCTAssertEqual(capturedPageNumber, pageNumber)
+        XCTAssertEqual(capturedOffset, 0)
     }
 
     func test_loadMoreDogsBreed_completionWithDogs() {
@@ -46,7 +39,7 @@ final class CuteDogsListPresenterTests: XCTestCase {
         let cuteDog = CuteDog.anyDogBreed
 
         var capturedResult: Result<[CuteDogsCellConfiguration], ApiError>? = nil
-        dogInteractor.fetchBreedsAction = { _, _ in
+        dogInteractor.fetchMoreCuteDogsAction = { _ in
             return [cuteDog]
         }
 
@@ -74,7 +67,7 @@ final class CuteDogsListPresenterTests: XCTestCase {
         let exp = expectation(description: "waiting completion")
         var capturedResult: Result<[CuteDogsCellConfiguration], ApiError>? = nil
 
-        dogInteractor.fetchBreedsAction = { _, _ in
+        dogInteractor.fetchMoreCuteDogsAction = { _ in
             throw ApiError.apiError
         }
 
@@ -92,115 +85,7 @@ final class CuteDogsListPresenterTests: XCTestCase {
             XCTFail("Completion must fail")
         }
     }
-    
-    func test_loadMoreDogsBreed_fechedAllPreventRequest() {
 
-        let dogInteractor = DogBreedsInteractorSpy()
-        let sut = makeSUT(dogInteractor: dogInteractor,
-                          pageSize: 21,
-                          pageNumber: 1,
-                          fetchedAll: true)
-        let exp = expectation(description: "waiting completion")
-        var capturedPageSize = 0
-        var capturedPageNumber = 0
-        var capturedResult: Result<[CuteDogsCellConfiguration], ApiError>? = nil
-        
-        dogInteractor.fetchBreedsAction = { pageSize, pageNumber in
-            capturedPageSize = pageSize
-            capturedPageNumber = pageNumber
-            return [.anyDogBreed]
-        }
-
-        sut.loadMoreDogBreeds(completion: { result in
-            capturedResult = result
-            exp.fulfill()
-        })
-
-        wait(for: [exp], timeout: 0.1)
-
-        switch capturedResult {
-        case .success(let dogs):
-            XCTAssertEqual(dogs, [])
-            XCTAssertEqual(capturedPageSize, 0)
-            XCTAssertEqual(capturedPageNumber, 0)
-        default:
-            XCTFail("Completion must succeeded")
-        }
-    }
-    
-    func test_loadMoreDogsBreedTwice_increasePageNumber() {
-
-        let dogInteractor = DogBreedsInteractorSpy()
-        let sut = makeSUT(dogInteractor: dogInteractor,
-                          pageSize: 1,
-                          pageNumber: 0)
-        let exp = expectation(description: "waiting completion")
-        var capturedPageSize = 0
-        var capturedPageNumber = 0
-        var capturedResult: Result<[CuteDogsCellConfiguration], ApiError>? = nil
-        
-        dogInteractor.fetchBreedsAction = { pageSize, pageNumber in
-            capturedPageSize = pageSize
-            capturedPageNumber = pageNumber
-            return [.anyDogBreed]
-        }
-
-        sut.loadMoreDogBreeds(completion: { _ in
-            
-            sut.loadMoreDogBreeds(completion: { result in
-                capturedResult = result
-                exp.fulfill()
-            })
-        })
-        
-        wait(for: [exp], timeout: 0.2)
-
-        switch capturedResult {
-        case .success:
-            XCTAssertEqual(capturedPageSize, 1)
-            XCTAssertEqual(capturedPageNumber, 1)
-        default:
-            XCTFail("Completion must succeeded")
-        }
-    }
-    
-    func test_loadMoreDogsBreedResultLessThanPageSize_preventNextRequest() {
-
-        let dogInteractor = DogBreedsInteractorSpy()
-        let sut = makeSUT(dogInteractor: dogInteractor,
-                          pageSize: 10,
-                          pageNumber: 0)
-        let exp = expectation(description: "waiting completion")
-        var capturedPageSize = 0
-        var capturedPageNumber = 0
-        var capturedResult: Result<[CuteDogsCellConfiguration], ApiError>? = nil
-        
-        dogInteractor.fetchBreedsAction = { pageSize, pageNumber in
-            capturedPageSize = pageSize
-            capturedPageNumber = pageNumber
-            return [.anyDogBreed]
-        }
-
-        sut.loadMoreDogBreeds(completion: { _ in
-            
-            sut.loadMoreDogBreeds(completion: { result in
-                capturedResult = result
-                exp.fulfill()
-            })
-        })
-        
-        wait(for: [exp], timeout: 0.1)
-
-        switch capturedResult {
-        case .success(let dogs):
-            XCTAssertEqual(dogs, [])
-            XCTAssertEqual(capturedPageSize, 10)
-            XCTAssertEqual(capturedPageNumber, 0)
-        default:
-            XCTFail("Completion must succeeded")
-        }
-    }
-    
     func test_loadImageURL_askForImageURL() {
         
         let imageLoaderInteractor = ImageLoaderInteractorSpy()
@@ -266,7 +151,7 @@ final class CuteDogsListPresenterTests: XCTestCase {
         
         let exp = expectation(description: "waiting completion")
         
-        dogInteractor.fetchBreedsAction = { _, _ in
+        dogInteractor.fetchMoreCuteDogsAction = { _ in
             return [.anyDogBreed]
         }
 
@@ -283,18 +168,12 @@ final class CuteDogsListPresenterTests: XCTestCase {
     func makeSUT(dogInteractor: DogBreedsInteractor = DogBreedsInteractorSpy(),
                  imageLoaderInteractor: ImageLoaderInteractor = ImageLoaderInteractorSpy(),
                  router: CuteDogsListPresenterRouter = CuteDogsListPresenterRouterSpy(),
-                 pageSize: Int = 20,
-                 pageNumber: Int = 0,
-                 fetchedAll: Bool = false,
                  file: StaticString = #filePath,
                  line: UInt = #line) -> CuteDogsListViewControllerPresenter {
         
         let sut = CuteDogsListPresenter(dogInteractor: dogInteractor,
                                         imageLoaderInteractor: imageLoaderInteractor,
-                                        router: router,
-                                        pageSize: pageSize,
-                                        pageNumber: pageNumber,
-                                        fetchedAll: fetchedAll)
+                                        router: router)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }

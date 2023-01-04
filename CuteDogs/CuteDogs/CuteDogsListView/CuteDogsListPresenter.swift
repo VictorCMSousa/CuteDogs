@@ -18,25 +18,16 @@ final class CuteDogsListPresenter {
     private let dogInteractor: DogBreedsInteractor
     private let imageLoaderInteractor: ImageLoaderInteractor
     private let router: CuteDogsListPresenterRouter
-    private let pageSize: Int
-    private var pageNumber: Int
-    private var fetchedAll: Bool
     private var imagesTasks: [URL: Task<UIImage?, Never>] = [:]
     private var fetchedDogs: [CuteDog] = []
     
     init(dogInteractor: DogBreedsInteractor,
          imageLoaderInteractor: ImageLoaderInteractor,
-         router: CuteDogsListPresenterRouter,
-         pageSize: Int,
-         pageNumber: Int,
-         fetchedAll: Bool) {
+         router: CuteDogsListPresenterRouter) {
         
         self.dogInteractor = dogInteractor
         self.imageLoaderInteractor = imageLoaderInteractor
         self.router = router
-        self.pageSize = pageSize
-        self.pageNumber = pageNumber
-        self.fetchedAll = fetchedAll
     }
 }
 
@@ -44,17 +35,12 @@ extension CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
     
     func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ()) {
         
-        guard !fetchedAll else {
-            completion(.success([]))
-            return
-        }
-        Task {
+        Task { 
             do {
-                let cuteDogsBreeds = try await dogInteractor.fetchCuteDogs(size: pageSize, pageNumber: pageNumber)
-                fetchedAll = cuteDogsBreeds.count < pageSize
-                pageNumber += !fetchedAll ? 1 : 0
-                fetchedDogs.append(contentsOf: cuteDogsBreeds)
-                let configs: [CuteDogsCellConfiguration] = cuteDogsBreeds.map(map)
+                let cuteDogsBreeds = try await dogInteractor.fetchMoreCuteDogs(offset: fetchedDogs.count)
+                let uniqueDogs = cuteDogsBreeds.filter { !fetchedDogs.contains($0) }
+                fetchedDogs.append(contentsOf: uniqueDogs)
+                let configs: [CuteDogsCellConfiguration] = uniqueDogs.map(map)
                 DispatchQueue.main.async {
                     completion(.success(configs))
                 }
