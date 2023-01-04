@@ -102,6 +102,7 @@ final class CuteDogsListViewController: UIViewController, Toastable {
         collectionView.register(CuteDogsGridCellView.self)
         collectionView.dataSource = dataSource
         collectionView.delegate = self
+        collectionView.prefetchDataSource = self
         collectionView.collectionViewLayout = listCVLayout
         
         presenter.loadMoreDogBreeds { [weak self] result in
@@ -146,6 +147,8 @@ final class CuteDogsListViewController: UIViewController, Toastable {
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
+
+// MARK: UICollectionViewDelegate
 
 extension CuteDogsListViewController: UICollectionViewDelegate {
     
@@ -193,5 +196,25 @@ extension CuteDogsListViewController: UICollectionViewDelegate {
     private func cellController(at indexPath: IndexPath) -> CuteDogsCellConfiguration? {
         dataSource.itemIdentifier(for: indexPath)
     }
+}
+
+// MARK: UICollectionViewDataSourcePrefetching
+
+extension CuteDogsListViewController: UICollectionViewDataSourcePrefetching {
+
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            if let imageURL = cellController(at: indexPath)?.dogImageURL {
+                presenter.load(imageURL: imageURL) { _ in }
+            }
+        }
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            if let imageURL = cellController(at: indexPath)?.dogImageURL {
+                presenter.cancelLoad(imageURL: imageURL)
+            }
+        }
+    }
 }
