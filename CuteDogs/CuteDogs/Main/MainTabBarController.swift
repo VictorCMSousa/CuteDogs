@@ -9,18 +9,28 @@ import UIKit
 
 final class MainTabBarController: UITabBarController {
     
-    var makeListView: ((UINavigationController) -> UIViewController)?
-    var makeSearchView: ((UINavigationController) -> UIViewController)?
+    private let makeListView: ((UINavigationController) -> UIViewController)
+    private let makeSearchView: ((UINavigationController) -> UIViewController)
+    
+    init(makeListView: @escaping ((UINavigationController) -> UIViewController), makeSearchView: @escaping ((UINavigationController) -> UIViewController)) {
+        self.makeListView = makeListView
+        self.makeSearchView = makeSearchView
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let listNavigationController = UINavigationController()
-        let cuteDogsListViewController = makeListView!(listNavigationController)
+        let cuteDogsListViewController = makeListView(listNavigationController)
         listNavigationController.setViewControllers([cuteDogsListViewController], animated: false)
         
         let searchNavigationController = UINavigationController()
-        let searchViewController = makeSearchView!(searchNavigationController)
+        let searchViewController = makeSearchView(searchNavigationController)
         searchNavigationController.setViewControllers([searchViewController], animated: false)
         
         let appearance = UINavigationBarAppearance()

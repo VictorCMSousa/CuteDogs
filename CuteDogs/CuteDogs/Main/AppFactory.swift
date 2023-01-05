@@ -52,9 +52,8 @@ final class AppFactory {
     
     static func makeTabBar() -> MainTabBarController {
         
-        let customTabBar = MainTabBarController()
-        customTabBar.makeListView = AppFactory.makeCuteDogsListView(navigationController:)
-        customTabBar.makeSearchView = AppFactory.makeSearchCuteDog(navigationController:)
+        let customTabBar = MainTabBarController(makeListView: AppFactory.makeCuteDogsListView(navigationController:),
+                                                makeSearchView: AppFactory.makeSearchCuteDog(navigationController:))
         return customTabBar
     }
 }

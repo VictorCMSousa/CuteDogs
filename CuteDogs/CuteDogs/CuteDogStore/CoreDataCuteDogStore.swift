@@ -53,7 +53,7 @@ final class CoreDataCuteDogStore {
             try? coordinator.persistentStores.forEach(coordinator.remove)
         }
     }
-    
+
     deinit {
         cleanUpReferencesToPersistentStores()
     }

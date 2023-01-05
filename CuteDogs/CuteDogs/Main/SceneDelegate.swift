@@ -16,8 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let tabBar = AppFactory.makeTabBar()
-        tabBar.makeListView = AppFactory.makeCuteDogsListView(navigationController:)
-        tabBar.makeSearchView = AppFactory.makeSearchCuteDog(navigationController:)
         
         window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
