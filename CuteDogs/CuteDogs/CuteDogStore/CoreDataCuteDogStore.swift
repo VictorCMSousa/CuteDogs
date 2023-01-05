@@ -9,8 +9,8 @@ import CoreData
 
 protocol CuteDogStore {
     
-    func retrieve() throws -> [CuteDogStored]?
-    func insert(cuteDogs: [CuteDog]) throws
+    func retrieve() async throws -> [CuteDogStored]?
+    func insert(cuteDogs: [CuteDog]) async throws
 }
 
 final class CoreDataCuteDogStore {
@@ -40,10 +40,10 @@ final class CoreDataCuteDogStore {
         }
     }
     
-    func performSync<R>(_ action: (NSManagedObjectContext) -> Result<R, Error>) throws -> R {
+    private func performSync<R>(_ action: @escaping (NSManagedObjectContext) -> Result<R, Error>) async throws -> R {
         let context = self.context
         var result: Result<R, Error>!
-        context.performAndWait { result = action(context) }
+        await context.perform { result = action(context) }
         return try result.get()
     }
     
@@ -61,16 +61,16 @@ final class CoreDataCuteDogStore {
 
 extension CoreDataCuteDogStore: CuteDogStore {
     
-    func retrieve() throws -> [CuteDogStored]? {
-        try performSync { context in
+    func retrieve() async throws -> [CuteDogStored]? {
+        try await performSync { context in
             Result {
                 try CuteDogStored.loadCuteDog(in: context)
             }
         }
     }
     
-    func insert(cuteDogs: [CuteDog]) throws {
-        try performSync { context in
+    func insert(cuteDogs: [CuteDog]) async throws {
+        try await performSync { context in
             Result {
                 cuteDogs.forEach({ cuteDog in
                     let managedCache = CuteDogStored(context: context)

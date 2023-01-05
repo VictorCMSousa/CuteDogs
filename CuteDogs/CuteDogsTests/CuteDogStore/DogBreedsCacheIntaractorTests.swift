@@ -10,34 +10,34 @@ import XCTest
 
 final class DogBreedsCacheIntaractorTests: XCTestCase {
     
-    func test_fetchCuteDogs_returnEmptyOnEmptyCache() throws {
+    func test_fetchCuteDogs_returnEmptyOnEmptyCache() async throws {
         
         let store = CuteDogStoreSpy()
         let sut = makeSUT(store: store)
         store.retrieveAction = { [] }
         
-        let fetched = sut.fetchCuteDogs()
+        let fetched = await sut.fetchCuteDogs()
         
         XCTAssertEqual(fetched, [])
     }
     
-    func test_fetchCuteDogs_returnEmptyCacheError() throws {
+    func test_fetchCuteDogs_returnEmptyCacheError() async throws {
         
         let store = CuteDogStoreSpy()
         let sut = makeSUT(store: store)
         store.retrieveAction = { throw NSError(domain: "any", code: 0) }
             
-        let fetched = sut.fetchCuteDogs()
+        let fetched = await sut.fetchCuteDogs()
         XCTAssertEqual(fetched, [])
         
     }
     
-    func test_save_askStoreToSave() throws {
+    func test_save_askStoreToSave() async throws {
         
         let store = CuteDogStoreSpy()
         let sut = makeSUT(store: store)
         
-        sut.save(cuteDogs: [.anyDogBreed])
+        await sut.save(cuteDogs: [.anyDogBreed])
             
         XCTAssertEqual(store.insertedDogs, [.anyDogBreed])
         

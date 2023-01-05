@@ -35,11 +35,12 @@ extension CuteDogsListPresenter: CuteDogsListViewControllerPresenter {
     
     func loadMoreDogBreeds(completion: @escaping (Result<[CuteDogsCellConfiguration], ApiError>) -> ()) {
         
-        Task { 
+        let savedDogs = fetchedDogs
+        Task { [weak self] in
             do {
                 let cuteDogsBreeds = try await dogInteractor.fetchMoreCuteDogs(offset: fetchedDogs.count)
-                let uniqueDogs = cuteDogsBreeds.filter { !fetchedDogs.contains($0) }
-                fetchedDogs.append(contentsOf: uniqueDogs)
+                let uniqueDogs = cuteDogsBreeds.filter { !savedDogs.contains($0) }
+                self?.fetchedDogs.append(contentsOf: uniqueDogs)
                 let configs: [CuteDogsCellConfiguration] = uniqueDogs.map(map)
                 DispatchQueue.main.async {
                     completion(.success(configs))

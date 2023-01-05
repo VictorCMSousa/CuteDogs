@@ -8,8 +8,8 @@
 import Foundation
 
 protocol DogBreedsCacheIntaractor {
-    func save(cuteDogs: [CuteDog])
-    func fetchCuteDogs() -> [CuteDog]
+    func save(cuteDogs: [CuteDog]) async
+    func fetchCuteDogs() async -> [CuteDog]
 }
 
 final class LocalCuteDogInteractor {
@@ -23,12 +23,12 @@ final class LocalCuteDogInteractor {
 
 extension LocalCuteDogInteractor: DogBreedsCacheIntaractor {
     
-    func save(cuteDogs: [CuteDog]) {
-        try? store.insert(cuteDogs: cuteDogs)
+    func save(cuteDogs: [CuteDog]) async {
+        try? await store.insert(cuteDogs: cuteDogs)
     }
     
-    func fetchCuteDogs() -> [CuteDog] {
-        let cuteDogs = try? store.retrieve()?.map { map(localCuteDog: $0) }
+    func fetchCuteDogs() async -> [CuteDog] {
+        let cuteDogs = try? await store.retrieve()?.map { map(localCuteDog: $0) }
         return cuteDogs ?? []
     }
     

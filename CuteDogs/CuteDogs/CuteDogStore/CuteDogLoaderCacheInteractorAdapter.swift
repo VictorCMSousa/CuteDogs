@@ -20,11 +20,11 @@ final class CuteDogLoaderCacheInteractorAdapter: DogBreedsInteractor {
         do {
             
             let cuteDogs = try await remoteInteractor.fetchMoreCuteDogs(offset: offset)
-            cacheInteractor?.save(cuteDogs: cuteDogs)
+            await cacheInteractor?.save(cuteDogs: cuteDogs)
             return cuteDogs
         } catch {
             if offset > 0  { return [] }
-            return cacheInteractor?.fetchCuteDogs() ?? []
+            return await cacheInteractor?.fetchCuteDogs() ?? []
         }
     }
 }

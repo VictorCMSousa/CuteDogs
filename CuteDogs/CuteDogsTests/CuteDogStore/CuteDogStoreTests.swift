@@ -10,32 +10,22 @@ import XCTest
 
 final class CuteDogStoreTests: XCTestCase {
     
-    func test_retrieve_returnEmptyOnEmptyCache() {
+    func test_retrieve_returnEmptyOnEmptyCache() async throws {
         let sut = makeSUT()
         
-        let retrievedResult = Result { try sut.retrieve() }
+        let cuteDogs = try await sut.retrieve()
         
-        switch retrievedResult {
-        case .success(let cuteDogs):
-            XCTAssertEqual(cuteDogs, [])
-        default:
-            XCTFail("Expecting success")
-        }
+        XCTAssertEqual(cuteDogs, [])
     }
     
-    func test_retrieve_returnCuteDogOnNonEmptyCache() {
+    func test_retrieve_returnCuteDogOnNonEmptyCache() async throws {
         let sut = makeSUT()
         
-        insert( [.anyDogBreed], to: sut)
+        await insert( [.anyDogBreed], to: sut)
         
-        let retrievedResult = Result { try sut.retrieve() }
+        let cuteDogs = try await sut.retrieve()
         
-        switch retrievedResult {
-        case .success(let cuteDogs):
-            XCTAssertEqual(cuteDogs?.count, 1)
-        default:
-            XCTFail("Expecting success")
-        }
+        XCTAssertEqual(cuteDogs?.count, 1)
     }
     
 // MARK: Helpers
@@ -48,9 +38,9 @@ final class CuteDogStoreTests: XCTestCase {
     }
     
     @discardableResult
-    func insert(_ cuteDogs: [CuteDog], to sut: CuteDogStore) -> Error? {
+    func insert(_ cuteDogs: [CuteDog], to sut: CuteDogStore) async -> Error? {
         do {
-            try sut.insert(cuteDogs: cuteDogs)
+            try await sut.insert(cuteDogs: cuteDogs)
             return nil
         } catch {
             return error
