@@ -1,5 +1,5 @@
 //
-//  CuteDogLoaderCacheInteractorAdapterTests.swift
+//  CuteDogRemoteWithCacheInteractorTests.swift
 //  CuteDogsTests
 //
 //  Created by Victor Sousa on 22/12/2022.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import CuteDogs
 
-final class CuteDogLoaderCacheInteractorAdapterTests: XCTestCase {
+final class CuteDogRemoteWithCacheInteractorTests: XCTestCase {
     
     func test_fetchCuteDogs_askRemoteLoader() async throws {
         
@@ -103,7 +103,7 @@ final class CuteDogLoaderCacheInteractorAdapterTests: XCTestCase {
                  file: StaticString = #filePath,
                  line: UInt = #line) -> DogBreedsInteractor {
         
-        let sut = CuteDogLoaderCacheInteractorAdapter(remoteInteractor: remoteInteractor, cacheInteractor: cacheInteractor)
+        let sut = CuteDogRemoteWithCacheInteractor(remoteInteractor: remoteInteractor, cacheInteractor: cacheInteractor)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }

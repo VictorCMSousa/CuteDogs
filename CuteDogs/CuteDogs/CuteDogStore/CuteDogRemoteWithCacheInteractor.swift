@@ -1,11 +1,11 @@
 //
-//  CuteDogLoaderCacheInteractorAdapter.swift
+//  CuteDogRemoteWithCacheInteractor.swift
 //  CuteDogs
 //
 //  Created by Victor Sousa on 21/12/2022.
 //
 
-final class CuteDogLoaderCacheInteractorAdapter: DogBreedsInteractor {
+final class CuteDogRemoteWithCacheInteractor: DogBreedsInteractor {
     
     private let remoteInteractor: DogBreedsInteractor
     private let cacheInteractor: DogBreedsCacheIntaractor?

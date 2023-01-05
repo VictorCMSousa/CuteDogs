@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F50342BE2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50342BD2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift */; };
+		F50342BE2954539D006A2F35 /* CuteDogRemoteWithCacheInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50342BD2954539D006A2F35 /* CuteDogRemoteWithCacheInteractorTests.swift */; };
 		F50984FC2952FF1C00DBB4F2 /* SeachDogBreedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50984FB2952FF1C00DBB4F2 /* SeachDogBreedsInteractor.swift */; };
 		F50984FF2952FF8800DBB4F2 /* CuteDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50984FE2952FF8800DBB4F2 /* CuteDog.swift */; };
 		F5098501295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5098500295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift */; };
@@ -50,7 +50,7 @@
 		F577A4EC295367E0005C736A /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4EB295367E0005C736A /* CoreDataHelpers.swift */; };
 		F577A4F12953911D005C736A /* CoreDataCuteDogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4F02953911D005C736A /* CoreDataCuteDogStore.swift */; };
 		F577A4F329539213005C736A /* LocalCuteDogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4F229539213005C736A /* LocalCuteDogInteractor.swift */; };
-		F577A4F52953926B005C736A /* CuteDogLoaderCacheInteractorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4F42953926B005C736A /* CuteDogLoaderCacheInteractorAdapter.swift */; };
+		F577A4F52953926B005C736A /* CuteDogRemoteWithCacheInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4F42953926B005C736A /* CuteDogRemoteWithCacheInteractor.swift */; };
 		F577A4F82953947E005C736A /* CuteDogStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4F72953947E005C736A /* CuteDogStoreTests.swift */; };
 		F577A4FA29539936005C736A /* DogBreedsCacheIntaractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577A4F929539936005C736A /* DogBreedsCacheIntaractorTests.swift */; };
 		F5897AF7294F3CFC0012143B /* ImageLoaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */; };
@@ -100,7 +100,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F50342BD2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogLoaderCacheInteractorAdapterTests.swift; sourceTree = "<group>"; };
+		F50342BD2954539D006A2F35 /* CuteDogRemoteWithCacheInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogRemoteWithCacheInteractorTests.swift; sourceTree = "<group>"; };
 		F50984FB2952FF1C00DBB4F2 /* SeachDogBreedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachDogBreedsInteractor.swift; sourceTree = "<group>"; };
 		F50984FE2952FF8800DBB4F2 /* CuteDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDog.swift; sourceTree = "<group>"; };
 		F5098500295308BB00DBB4F2 /* ImageLoaderInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractorTests.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		F577A4EB295367E0005C736A /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		F577A4F02953911D005C736A /* CoreDataCuteDogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCuteDogStore.swift; sourceTree = "<group>"; };
 		F577A4F229539213005C736A /* LocalCuteDogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCuteDogInteractor.swift; sourceTree = "<group>"; };
-		F577A4F42953926B005C736A /* CuteDogLoaderCacheInteractorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogLoaderCacheInteractorAdapter.swift; sourceTree = "<group>"; };
+		F577A4F42953926B005C736A /* CuteDogRemoteWithCacheInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogRemoteWithCacheInteractor.swift; sourceTree = "<group>"; };
 		F577A4F72953947E005C736A /* CuteDogStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteDogStoreTests.swift; sourceTree = "<group>"; };
 		F577A4F929539936005C736A /* DogBreedsCacheIntaractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsCacheIntaractorTests.swift; sourceTree = "<group>"; };
 		F5897AF6294F3CFC0012143B /* ImageLoaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderInteractor.swift; sourceTree = "<group>"; };
@@ -422,7 +422,7 @@
 				F577A4F02953911D005C736A /* CoreDataCuteDogStore.swift */,
 				F577A4EB295367E0005C736A /* CoreDataHelpers.swift */,
 				F577A4F229539213005C736A /* LocalCuteDogInteractor.swift */,
-				F577A4F42953926B005C736A /* CuteDogLoaderCacheInteractorAdapter.swift */,
+				F577A4F42953926B005C736A /* CuteDogRemoteWithCacheInteractor.swift */,
 			);
 			path = CuteDogStore;
 			sourceTree = "<group>";
@@ -440,7 +440,7 @@
 			children = (
 				F577A4F72953947E005C736A /* CuteDogStoreTests.swift */,
 				F577A4F929539936005C736A /* DogBreedsCacheIntaractorTests.swift */,
-				F50342BD2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift */,
+				F50342BD2954539D006A2F35 /* CuteDogRemoteWithCacheInteractorTests.swift */,
 			);
 			path = CuteDogStore;
 			sourceTree = "<group>";
@@ -686,7 +686,7 @@
 				F577A4D529532F6B005C736A /* MainTabBarController.swift in Sources */,
 				F577A4D1295314B3005C736A /* SearchCuteDogsResultPresenter.swift in Sources */,
 				F5D02B7D2950B33900582327 /* CuteDogDetailPresenter.swift in Sources */,
-				F577A4F52953926B005C736A /* CuteDogLoaderCacheInteractorAdapter.swift in Sources */,
+				F577A4F52953926B005C736A /* CuteDogRemoteWithCacheInteractor.swift in Sources */,
 				F5B3A91C294DF4EE00C989F4 /* CuteDogsGridCellView.swift in Sources */,
 				F5D02B7B2950B17900582327 /* CuteDogsListRouter.swift in Sources */,
 				F5587F92294C91D900FA828E /* NetworkInfra.swift in Sources */,
@@ -713,7 +713,7 @@
 				F5587F9E294CC80100FA828E /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				F5897AFF294F819F0012143B /* CuteDogsListPresenterTests.swift in Sources */,
 				F5897B03295079C40012143B /* CuteDog.swift in Sources */,
-				F50342BE2954539D006A2F35 /* CuteDogLoaderCacheInteractorAdapterTests.swift in Sources */,
+				F50342BE2954539D006A2F35 /* CuteDogRemoteWithCacheInteractorTests.swift in Sources */,
 				F577A4DC29533562005C736A /* SearchCuteDogsResultPresenterRouterSpy.swift in Sources */,
 				F5D02B812950C6C700582327 /* CuteDogsCellConfiguration.swift in Sources */,
 				F5D02B872950C78000582327 /* CuteDogDetailPresenterTests.swift in Sources */,
